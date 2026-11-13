@@ -366,6 +366,7 @@ h1 {
 }
 .study-toolbar {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
@@ -381,8 +382,13 @@ h1 {
 }
 .toolbar-controls {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
   gap: 10px;
   align-items: center;
+}
+.toolbar-controls .button {
+  white-space: nowrap;
 }
 .search-box {
   display: flex;
@@ -1449,6 +1455,9 @@ i.legend-wrong {
   }
   .toolbar-controls {
     gap: 8px;
+  }
+  .toolbar-controls .search-box {
+    flex-basis: 100%;
   }
   .toolbar-controls .button {
     padding: 10px;

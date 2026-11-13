@@ -9,6 +9,7 @@ import {
   Clock3,
   FileText,
   Leaf,
+  ListOrdered,
   Search,
   ShieldCheck,
   Shuffle,
@@ -52,6 +53,9 @@ export default function App() {
   const [search, setSearch] = useState("");
   const [dialog, setDialog] = useState(null);
   const [notice, setNotice] = useState("");
+  const isQuestionOrderShuffled = order.some(
+    (id, position) => id !== bank[position].id,
+  );
   const filtered = useMemo(
     () =>
       order
@@ -303,6 +307,21 @@ export default function App() {
                   >
                     <Shuffle size={16} /> Xáo câu hỏi
                   </button>
+                  {isQuestionOrderShuffled && (
+                    <button
+                      className="button secondary"
+                      onClick={() => {
+                        setOrder(bank.map((q) => q.id));
+                        setIndex(0);
+                        setSearch("");
+                        setNotice(
+                          "Đã trở về thứ tự câu hỏi trong PDF. Lựa chọn và kết quả đã làm vẫn được giữ.",
+                        );
+                      }}
+                    >
+                      <ListOrdered size={16} /> Về thứ tự ban đầu
+                    </button>
+                  )}
                 </div>
               </div>
               {notice && (

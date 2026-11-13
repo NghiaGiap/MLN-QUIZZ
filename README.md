@@ -20,6 +20,7 @@ Nếu chuyển dự án sang máy khác, cài Node.js 22.12 trở lên và chạ
 - **Ôn tập:** chọn một hoặc nhiều phương án rồi nhấn **Kiểm tra đáp án**. Đáp án đúng và ghi chú nguồn xuất hiện sau khi kiểm tra. **Làm lại** xóa lựa chọn của câu đó và xáo lại nội dung đáp án; nhãn luôn theo A, B, C, D (hoặc E).
 - **Điều hướng:** dùng Câu trước/Câu tiếp, bản đồ câu hỏi hoặc tìm kiếm. Nhập một số từ 1 đến 526 để đến câu gốc tương ứng; cũng có thể tìm bằng từ khóa không dấu.
 - **Xáo câu hỏi:** đổi thứ tự ôn tập, vẫn giữ lựa chọn, thứ tự đáp án và kết quả trong phiên hiện tại. Phiên ôn tập mới xáo đáp án của toàn bộ câu hỏi.
+- **Về thứ tự ban đầu:** xuất hiện cạnh nút xáo khi thứ tự câu đã thay đổi. Khôi phục thứ tự câu trong PDF, xóa từ khóa tìm kiếm và quay về câu 1; vẫn giữ lựa chọn, kết quả và thứ tự đáp án của từng câu.
 - **Thi thử:** tạo đề gồm 60 câu ngẫu nhiên không trùng, làm trong 50 phút. Mỗi đề mới xáo nội dung đáp án, giữ nhãn A–B–C–D–E. Quay lại câu đã làm hoặc tải lại trang giữ nguyên thứ tự và lựa chọn của bài đang thi. Bản đồ hiển thị câu đã chọn; có thể sửa lựa chọn trước khi nộp. Không công bố đáp án hoặc liên kết PDF trong vùng câu hỏi trước khi nộp.
 - **Nộp bài:** hiển thị xác nhận, điểm thang 10, số câu đúng/sai/chưa trả lời và đáp án từng câu. Mỗi câu đúng có trọng số bằng nhau; câu nhiều đáp án chỉ đúng khi chọn đủ và không chọn thừa.
 - **Hết giờ:** tự động nộp, kể cả khi đang ở chế độ ôn tập. Khi quay lại tab hoặc tải lại trang, thời gian được tính từ thời điểm hết hạn cố định.

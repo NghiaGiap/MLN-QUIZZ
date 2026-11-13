@@ -64,6 +64,50 @@ test("practice checks wrong/right choices, keeps feedback on navigation, and shu
   expect(errors).toEqual([]);
 });
 
+test("restore original question order clears search and preserves checked answers", async ({
+  page,
+}) => {
+  await page.addInitScript(() => {
+    Math.random = () => 0;
+  });
+  await page.goto("/");
+  const restore = page.getByRole("button", {
+    name: "Về thứ tự ban đầu",
+    exact: true,
+  });
+  await expect(restore).toHaveCount(0);
+  const initialChoices = await page.locator(".option-copy").allTextContents();
+  await page.locator('.question-card input[value="D"]').check();
+  await page
+    .getByRole("button", { name: "Kiểm tra đáp án", exact: true })
+    .click();
+  await page.getByRole("button", { name: "Xáo câu hỏi", exact: true }).click();
+  await expect(page.locator(".question-title")).not.toHaveText(
+    bank[0].question,
+  );
+  await expect(restore).toBeVisible();
+  for (const width of [320, 390, 768, 1024, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth,
+      ),
+    ).toBe(true);
+  }
+  await page.getByRole("searchbox").fill("526");
+  await restore.click();
+  await expect(page.getByRole("searchbox")).toHaveValue("");
+  await expect(restore).toHaveCount(0);
+  await expect(page.locator(".question-title")).toHaveText(bank[0].question);
+  await expect(page.locator(".answer-feedback")).toContainText("Chính xác.");
+  await expect(page.locator('.question-card input[value="D"]')).toBeChecked();
+  expect(await page.locator(".option-copy").allTextContents()).toEqual(
+    initialChoices,
+  );
+  await page.getByRole("button", { name: "Câu tiếp", exact: true }).click();
+  await expect(page.locator(".question-title")).toHaveText(bank[1].question);
+});
+
 test("search finds source IDs, multiple answers require the full set, and empty state recovers", async ({
   page,
 }) => {
