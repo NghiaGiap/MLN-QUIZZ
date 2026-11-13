@@ -43,8 +43,9 @@ export default function ExamSetup({ onStart, questionCount, reviewCount }) {
           <section>
             <h3>Mỗi lần là một đề khác</h3>
             <p>
-              60 câu không trùng, lấy từ {questionCount} câu đủ dữ kiện.{" "}
-              {reviewCount} câu cần làm rõ vẫn có thể đọc ở phần ôn tập.
+              60 câu không trùng, chọn ngẫu nhiên từ {questionCount} câu hỏi.{" "}
+              {reviewCount > 0 &&
+                `${reviewCount} câu cần làm rõ vẫn có thể đọc ở phần ôn tập.`}
             </p>
           </section>
         </div>

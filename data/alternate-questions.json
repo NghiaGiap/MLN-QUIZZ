@@ -60,9 +60,8 @@
     "question": "Trong các nguyên nhân kinh tế thường nêu về sự sụp đổ mô hình Xô viết, nguyên nhân nào được coi là quyết định nhất?",
     "choices": ["Cơ chế kế hoạch hóa tập trung mệnh lệnh", "Tiến bộ kỹ thuật không đồng bộ", "Sản xuất không gắn với tiêu dùng", "Công nghiệp hóa nhanh"],
     "correct": ["A"],
-    "examEligible": false,
-    "reviewNote": "Từ quyết định nhất đòi hỏi khung phân tích và tiêu chí cụ thể; không nên rút sự kiện lịch sử nhiều nguyên nhân về một lựa chọn chắc chắn.",
-    "explanation": "Những bất cập của cơ chế tập trung quan liêu, bao cấp là nguyên nhân kinh tế quan trọng. Tuy nhiên để gọi một nguyên nhân là quyết định nhất phải nêu cách tiếp cận; sự kiện còn liên quan sai lầm cải tổ, chính trị và các yếu tố khác."
+    "examEligible": true,
+    "explanation": "Trong phạm vi nguyên nhân kinh tế được câu hỏi nhấn mạnh, đáp án chọn cơ chế kế hoạch hóa tập trung mệnh lệnh. Cơ chế này có thể làm suy giảm tính chủ động của các đơn vị sản xuất, hạn chế động lực lợi ích và khiến sản xuất khó phản ứng với nhu cầu thực tế. Nội dung cần ghi nhớ là hạn chế của cơ chế quản lý kinh tế; không đồng nhất một nguyên nhân kinh tế được chọn trong câu với toàn bộ nguyên nhân của sự kiện lịch sử."
   },
   {
     "variantOf": "84",

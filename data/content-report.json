@@ -3,24 +3,8 @@
   "originalCount": 526,
   "alternateCount": 29,
   "totalCount": 555,
-  "examEligibleCount": 540,
-  "reviewQuestionIds": [
-    "52",
-    "123",
-    "149",
-    "162",
-    "190",
-    "206",
-    "209",
-    "228",
-    "274",
-    "297",
-    "345",
-    "360",
-    "440",
-    "480",
-    "535"
-  ],
+  "examEligibleCount": 555,
+  "reviewQuestionIds": [],
   "correctedAnswerIds": [
     "70",
     "71",
@@ -37,9 +21,8 @@
   ],
   "editorialChanges": {
     "52": {
-      "examEligible": false,
-      "reviewNote": "Hai lựa chọn giảm giá trị một đơn vị hàng hóa/sản phẩm gần như trùng nghĩa; chưa có đáp án đơn nhất.",
-      "reason": "Phương án C và D trùng nội dung."
+      "examEligible": true,
+      "reason": "Theo yêu cầu người dùng: giữ khóa đáp án hiện có, giải thích trong phạm vi học phần Kinh tế chính trị Mác–Lênin và đưa lại vào chấm điểm, thi thử. Giữ nguyên câu hỏi và lựa chọn; giải thích rõ khái niệm, phạm vi áp dụng."
     },
     "70": {
       "correct": [
@@ -76,9 +59,8 @@
       "reason": "Phân biệt khởi xướng đổi mới năm 1986 với chính thức xác định mô hình kinh tế thị trường định hướng XHCN năm 2001."
     },
     "123": {
-      "examEligible": false,
-      "reviewNote": "Cách mạng điện tử và cách mạng máy tính đều được dùng mô tả cuộc cách mạng lần ba; cần làm rõ tên gọi theo tài liệu của lớp.",
-      "reason": "Tên gọi trong các lựa chọn chưa loại trừ nhau."
+      "examEligible": true,
+      "reason": "Theo yêu cầu người dùng: giữ khóa đáp án hiện có, giải thích trong phạm vi học phần Kinh tế chính trị Mác–Lênin và đưa lại vào chấm điểm, thi thử. Giữ nguyên câu hỏi và lựa chọn; giải thích rõ khái niệm, phạm vi áp dụng."
     },
     "139": {
       "question": "Trong kinh tế thị trường định hướng xã hội chủ nghĩa theo khung kiến thức của học phần, thành phần kinh tế nào giữ vai trò chủ đạo?",
@@ -89,9 +71,8 @@
       "reason": "Bỏ chuỗi số quảng cáo và làm rõ hỏi cơ sở giá trị, không phải mọi giá giao dịch thực tế."
     },
     "149": {
-      "examEligible": false,
-      "reviewNote": "Cách mạng công nghiệp lần hai có nhiều trung tâm, đặc biệt Đức, Mỹ và Anh; đề chỉ cho một quốc gia khởi phát và không có các lựa chọn đầy đủ.",
-      "reason": "Không đủ căn cứ lịch sử cho một quốc gia duy nhất trong các lựa chọn hiện có."
+      "examEligible": true,
+      "reason": "Theo yêu cầu người dùng: giữ khóa đáp án hiện có, giải thích trong phạm vi học phần Kinh tế chính trị Mác–Lênin và đưa lại vào chấm điểm, thi thử. Giữ nguyên câu hỏi và lựa chọn; giải thích rõ khái niệm, phạm vi áp dụng."
     },
     "150": {
       "question": "Kế hoạch năm năm lần thứ nhất, đẩy mạnh công nghiệp hóa theo kế hoạch ở Liên Xô, bắt đầu vào thời gian nào?",
@@ -113,9 +94,8 @@
       "reason": "Sửa các cụm lỗi chữ làm phương án mất nghĩa; giữ ý kiểm tra khả năng khắc phục của nhà nước."
     },
     "162": {
-      "examEligible": false,
-      "reviewNote": "Phân công và chuyên môn hóa cũng là mặt tích cực của phát triển sản xuất, nên câu chọn mọi ý đúng chưa đủ căn cứ loại phương án D.",
-      "reason": "Cách liệt kê ba đóng góp khái quát chưa làm phương án còn lại thành sai."
+      "examEligible": true,
+      "reason": "Theo yêu cầu người dùng: giữ khóa đáp án hiện có, giải thích trong phạm vi học phần Kinh tế chính trị Mác–Lênin và đưa lại vào chấm điểm, thi thử. Giữ nguyên câu hỏi và lựa chọn; giải thích rõ khái niệm, phạm vi áp dụng."
     },
     "172": {
       "question": "Trong tuần hoàn tư bản, ở giai đoạn thứ hai — giai đoạn sản xuất — tư bản tồn tại dưới hình thái gì?",
@@ -132,32 +112,28 @@
       "correct": [
         "B"
       ],
-      "examEligible": false,
-      "reviewNote": "Tiền quy ước và tiền tượng trưng có thể được dùng gần nghĩa tùy tài liệu; định nghĩa hướng tới tiền tượng trưng nhưng chưa loại trừ rõ phương án còn lại.",
-      "reason": "Định nghĩa không phù hợp tiền vàng; chuyển đáp án tham khảo sang tiền tượng trưng nhưng chưa chấm chắc chắn vì có thuật ngữ gần nghĩa. Cắt phần đầu câu 191 lẫn vào phương án cuối."
+      "examEligible": true,
+      "reason": "Theo yêu cầu người dùng: giữ khóa đáp án hiện có, giải thích trong phạm vi học phần Kinh tế chính trị Mác–Lênin và đưa lại vào chấm điểm, thi thử. Giữ nguyên câu hỏi và lựa chọn; giải thích rõ khái niệm, phạm vi áp dụng."
     },
     "191": {
       "question": "Phương pháp sản xuất giá trị thặng dư tuyệt đối và tương đối có điểm nào giống nhau?",
       "reason": "Khôi phục phần đầu câu bị ghép vào câu trước."
     },
     "206": {
-      "examEligible": false,
-      "reviewNote": "Phương án tác động môi trường không được loại trừ rõ nếu câu yêu cầu chọn mọi hạn chế; cần xác định phạm vi ba nhóm tổng kết của lớp.",
-      "reason": "Câu nhiều lựa chọn chưa có tiêu chí loại trừ phương án D."
+      "examEligible": true,
+      "reason": "Theo yêu cầu người dùng: giữ khóa đáp án hiện có, giải thích trong phạm vi học phần Kinh tế chính trị Mác–Lênin và đưa lại vào chấm điểm, thi thử. Giữ nguyên câu hỏi và lựa chọn; giải thích rõ khái niệm, phạm vi áp dụng."
     },
     "209": {
-      "examEligible": false,
-      "reviewNote": "Các phương án đều có thể liên quan hệ quả tích lũy; chưa có nhận định sai rõ ràng cho câu hỏi phủ định.",
-      "reason": "Không thể giải thích trung thực rằng một hệ quả được nêu là sai khi thiếu điều kiện bổ sung."
+      "examEligible": true,
+      "reason": "Theo yêu cầu người dùng: giữ khóa đáp án hiện có, giải thích trong phạm vi học phần Kinh tế chính trị Mác–Lênin và đưa lại vào chấm điểm, thi thử. Giữ phân biệt đáp án quy ước với kiến thức lý luận trong phần giải thích."
     },
     "224": {
       "question": "Những nội dung nào thuộc mục tiêu của kinh tế thị trường định hướng xã hội chủ nghĩa ở Việt Nam? Chọn ba đáp án.",
       "reason": "Bỏ yêu cầu mọi mục tiêu đều khác tư bản chủ nghĩa, vì phát triển lực lượng sản xuất không phải mục tiêu riêng biệt."
     },
     "228": {
-      "examEligible": false,
-      "reviewNote": "Đây là một phép so sánh chính trị chưa nêu tác giả và ngữ cảnh, không nên chấm như mô tả pháp lý về chính phủ.",
-      "reason": "Thiếu ngữ cảnh cho phép so sánh với công ty cổ phần."
+      "examEligible": true,
+      "reason": "Theo yêu cầu người dùng: giữ khóa đáp án hiện có, giải thích trong phạm vi học phần Kinh tế chính trị Mác–Lênin và đưa lại vào chấm điểm, thi thử. Giữ nguyên câu hỏi và lựa chọn; giải thích rõ khái niệm, phạm vi áp dụng."
     },
     "229": {
       "optionEdits": {
@@ -208,9 +184,8 @@
       "reason": "Phân biệt quy luật cơ bản của chủ nghĩa tư bản với quy luật cơ bản của sản xuất hàng hóa nói chung."
     },
     "274": {
-      "examEligible": false,
-      "reviewNote": "Câu hỏi hỏi điều kiện ra đời sản xuất hàng hóa nhưng cả ba phương án lại nói về năng suất và sản lượng; chưa có lựa chọn trả lời đúng chủ đề.",
-      "reason": "Không tự nhận một phương án không liên quan là đáp án đúng."
+      "examEligible": true,
+      "reason": "Theo yêu cầu người dùng: giữ khóa đáp án hiện có, giải thích trong phạm vi học phần Kinh tế chính trị Mác–Lênin và đưa lại vào chấm điểm, thi thử. Giữ phân biệt đáp án quy ước với kiến thức lý luận trong phần giải thích."
     },
     "275": {
       "question": "Khi điều kiện sản xuất xã hội thay đổi, lượng giá trị của một đơn vị hàng hóa có tính chất nào?",
@@ -233,9 +208,8 @@
       "reason": "Khôi phục câu bị lỗi thiếu chữ để thể hiện rõ nội dung quan hệ lợi ích."
     },
     "297": {
-      "examEligible": false,
-      "reviewNote": "Câu chưa phân biệt công dụng do thuộc tính tự nhiên với công dụng xã hội của hàng hóa phục vụ người mua; cần xác định góc độ đang xét.",
-      "reason": "Các lựa chọn tư nhân/xã hội không đủ làm rõ thuộc tính được hỏi."
+      "examEligible": true,
+      "reason": "Theo yêu cầu người dùng: giữ khóa đáp án hiện có, giải thích trong phạm vi học phần Kinh tế chính trị Mác–Lênin và đưa lại vào chấm điểm, thi thử. Giữ nguyên câu hỏi và lựa chọn; giải thích rõ khái niệm, phạm vi áp dụng."
     },
     "301": {
       "optionEdits": {
@@ -259,18 +233,16 @@
       "reason": "Phân biệt chỉ tiêu hằng năm với m′ của một chu kỳ và trình độ bóc lột."
     },
     "345": {
-      "examEligible": false,
-      "reviewNote": "Lượng giá trị thặng dư là nguồn trực tiếp của tích lũy và các yếu tố khác cũng ảnh hưởng; chưa có lựa chọn không ảnh hưởng rõ ràng.",
-      "reason": "Đáp án nguồn mâu thuẫn quan hệ trực tiếp giữa giá trị thặng dư và tích lũy."
+      "examEligible": true,
+      "reason": "Theo yêu cầu người dùng: giữ khóa đáp án hiện có, giải thích trong phạm vi học phần Kinh tế chính trị Mác–Lênin và đưa lại vào chấm điểm, thi thử. Giữ phân biệt đáp án quy ước với kiến thức lý luận trong phần giải thích."
     },
     "358": {
       "question": "Bên cạnh điều tiết của thị trường, chủ thể nào thực hiện quản lý vĩ mô nền kinh tế?",
       "reason": "Phân biệt chủ thể nhà nước với công cụ pháp luật và quy luật giá trị."
     },
     "360": {
-      "examEligible": false,
-      "reviewNote": "p/(c+v) là định nghĩa; m/(c+v) cũng cho cùng kết quả khi p=m. Đề có cả hai biểu thức nhưng không nêu điều kiện phân biệt.",
-      "reason": "Hai công thức thường dùng cùng đúng dưới giả định cơ bản."
+      "examEligible": true,
+      "reason": "Theo yêu cầu người dùng: giữ khóa đáp án hiện có, giải thích trong phạm vi học phần Kinh tế chính trị Mác–Lênin và đưa lại vào chấm điểm, thi thử. Giữ nguyên câu hỏi và lựa chọn; giải thích rõ khái niệm, phạm vi áp dụng."
     },
     "373": {
       "question": "Điều kiện then chốt nào giúp giải thích tiền chuyển thành tư bản trong quá trình sản xuất?",
@@ -328,9 +300,8 @@
       "reason": "Bổ sung ngữ cảnh, tránh quy kết mọi mô hình kinh tế có quản lý nhà nước."
     },
     "440": {
-      "examEligible": false,
-      "reviewNote": "Động cơ kiềm chế chi phí tiền công không đồng nghĩa tiền công thực tế tất yếu luôn giảm; câu chưa chỉ rõ đại lượng và điều kiện xét.",
-      "reason": "Tránh khẳng định xu hướng tiền công tuyệt đối không có điều kiện."
+      "examEligible": true,
+      "reason": "Theo yêu cầu người dùng: giữ khóa đáp án hiện có, giải thích trong phạm vi học phần Kinh tế chính trị Mác–Lênin và đưa lại vào chấm điểm, thi thử. Giữ nguyên câu hỏi và lựa chọn; giải thích rõ khái niệm, phạm vi áp dụng."
     },
     "448": {
       "question": "Điều kiện tổng quát về hao phí lao động cá biệt để người sản xuất cạnh tranh và bù đắp hao phí theo chuẩn thị trường là gì?",
@@ -356,9 +327,8 @@
       "reason": "Thay khẳng định khống chế mọi hoạt động bằng mô tả chính xác cơ chế chi phối."
     },
     "480": {
-      "examEligible": false,
-      "reviewNote": "Hai lựa chọn phong phú và vô cùng phong phú chỉ khác cách nhấn mạnh, chưa có tiêu chí chuyên môn để chấm một lựa chọn duy nhất.",
-      "reason": "Không dùng cường điệu ngôn ngữ làm đáp án học thuật."
+      "examEligible": true,
+      "reason": "Theo yêu cầu người dùng: giữ khóa đáp án hiện có, giải thích trong phạm vi học phần Kinh tế chính trị Mác–Lênin và đưa lại vào chấm điểm, thi thử. Giữ nguyên câu hỏi và lựa chọn; giải thích rõ khái niệm, phạm vi áp dụng."
     },
     "492": {
       "optionEdits": {

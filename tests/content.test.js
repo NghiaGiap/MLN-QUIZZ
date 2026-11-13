@@ -38,19 +38,56 @@ test("alternate questions have their own correct keys rather than inheriting par
 });
 
 test("unclear questions are excluded from random exams", () => {
-  assert.ok(bank.some((q) => q.examEligible === false));
+  const restricted = bank.map((q, i) => ({ ...q, examEligible: i >= 15 }));
   for (let i = 0; i < 10; i++) {
-    const exam = createExam(bank);
+    const exam = createExam(restricted);
     assert.equal(exam.ids.length, 60);
     assert.ok(
       exam.ids.every(
-        (id) => bank.find((q) => q.id === id).examEligible !== false,
+        (id) => restricted.find((q) => q.id === id).examEligible !== false,
       ),
     );
   }
   assert.throws(() =>
     createExam(bank.map((q) => ({ ...q, examEligible: false }))),
   );
+});
+
+test("all 555 questions are graded with the course answer keys, including the 15 reinstated cards", () => {
+  const expected = {
+    52: ["C"],
+    123: ["D"],
+    149: ["A"],
+    162: ["A", "B", "C"],
+    190: ["B"],
+    206: ["A", "B", "C"],
+    209: ["A"],
+    228: ["A"],
+    274: ["A"],
+    297: ["B"],
+    345: ["A"],
+    360: ["D"],
+    440: ["B"],
+    480: ["A"],
+    535: ["A"],
+  };
+  assert.equal(bank.filter((q) => q.examEligible !== false).length, 555);
+  for (const [id, correct] of Object.entries(expected)) {
+    const question = bank.find((q) => q.id === id);
+    assert.equal(question.examEligible, true, id);
+    assert.equal(question.reviewNote, undefined, id);
+    assert.deepEqual(question.correct, correct, id);
+    assert.ok(
+      !/cần làm rõ|chưa đủ căn cứ|trước khi chấm/.test(question.explanation),
+      id,
+    );
+  }
+  const restored = bank.filter((q) => expected[q.id]);
+  const exam = createExam([
+    ...restored,
+    ...bank.filter((q) => !expected[q.id]).slice(0, 45),
+  ]);
+  assert.ok(restored.every((q) => exam.ids.includes(q.id)));
 });
 
 test("curated corrections distinguish concepts that had conflicting keys", () => {

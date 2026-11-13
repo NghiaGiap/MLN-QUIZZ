@@ -296,24 +296,57 @@ test("standalone alternate questions reveal explanations without PDF references"
   await expect(page.locator('a[href*=".pdf"]')).toHaveCount(0);
 });
 
-test("unclear cards show a review note without falsely marking choices right or wrong", async ({
+test("all 15 reinstated cards grade their course keys and reveal explanations", async ({
   page,
 }) => {
   await page.goto("/");
+  const ids = [
+    "52",
+    "123",
+    "149",
+    "162",
+    "190",
+    "206",
+    "209",
+    "228",
+    "274",
+    "297",
+    "345",
+    "360",
+    "440",
+    "480",
+    "535",
+  ];
+  for (const id of ids) {
+    const question = bank.find((q) => q.id === id);
+    await page.getByRole("searchbox").fill(id);
+    await expect(page.locator(".review-warning")).toHaveCount(0);
+    for (const key of question.correct)
+      await page.locator(`.question-card input[value="${key}"]`).check();
+    await page
+      .getByRole("button", { name: "Kiểm tra đáp án", exact: true })
+      .click();
+    await expect(page.locator(".answer-feedback")).toContainText("Chính xác.");
+    await expect(page.locator(".option.correct")).toHaveCount(
+      question.correct.length,
+    );
+    await expect(
+      page.getByRole("region", { name: "Giải thích đáp án" }),
+    ).toContainText(question.explanation);
+  }
+  await expect(
+    page.getByRole("region", { name: "Thống kê ôn tập" }),
+  ).toContainText("100%");
   await page.getByRole("searchbox").fill("52");
-  await expect(page.locator(".review-warning")).toBeVisible();
-  await page.locator('.question-card input[value="C"]').check();
+  await page.getByRole("button", { name: "Làm lại", exact: true }).click();
+  await page.locator('.question-card input[value="A"]').check();
   await page
     .getByRole("button", { name: "Kiểm tra đáp án", exact: true })
     .click();
-  await expect(page.locator(".answer-feedback")).toContainText("cần làm rõ");
-  await expect(page.locator(".option.correct, .option.incorrect")).toHaveCount(
-    0,
+  await expect(page.locator(".answer-feedback")).toContainText(
+    "Chưa chính xác",
   );
-  await expect(
-    page.getByRole("region", { name: "Thống kê ôn tập" }),
-  ).toContainText("0%");
-  await expect(
-    page.getByRole("region", { name: "Giải thích đáp án" }),
-  ).toBeVisible();
+  await page.getByRole("button", { name: "Thi thử", exact: true }).click();
+  await expect(page.locator(".exam-setup")).toContainText("555");
+  await expect(page.locator(".exam-setup")).not.toContainText("cần làm rõ");
 });

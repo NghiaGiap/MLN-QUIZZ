@@ -4,8 +4,8 @@
 
 - 526 câu ban đầu được giữ ID; 29 mục hỏi/đáp khác được biên tập thành câu độc lập 527–555.
 - Mỗi câu trong 555 câu có giải thích riêng, thường 2 câu văn; bài tính có phép tính và giả định cần thiết.
-- 540 câu được đưa vào thi; 15 câu chưa đủ rõ chỉ dùng để đọc và thảo luận khi ôn tập.
-- 63 mục hiệu chỉnh được ghi ở `data/editorial-updates.json`; 12 mục thay khóa đáp án, các mục còn lại sửa cách hỏi, lỗi chữ, lựa chọn hoặc đánh dấu cần làm rõ.
+- 555 câu đều được chấm điểm và tham gia thi; 15 câu từng được đánh dấu rà soát đã được đưa lại theo yêu cầu người dùng.
+- 63 mục hiệu chỉnh được ghi ở `data/editorial-updates.json`; 12 mục thay khóa đáp án, các mục còn lại sửa cách hỏi, lỗi chữ, lựa chọn hoặc xác định phạm vi giải thích theo học phần.
 - Runtime chỉ nhập `src/data/questions.json`. PDF ban đầu được lưu ngoài public, không có liên kết trong giao diện và không nằm trong bản `dist/`.
 
 ## Cách biên soạn
@@ -18,28 +18,30 @@ Mỗi biến thể có `variantOf` và khóa đáp án riêng. Ví dụ câu 2 c
 
 ## Một số hiệu chỉnh khóa đáp án
 
-| Câu | Hiệu chỉnh                                                    | Căn cứ nội dung                                                                                                                                             |
-| --- | ------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 70  | Trọng nông                                                    | Trường phái chuyển trọng tâm từ lưu thông sang sản xuất, trước hết nông nghiệp.                                                                             |
-| 71  | Thể chế chưa đầy đủ                                           | Đây là lý do hoàn thiện; có nhiều loại thị trường tự nó không phải khuyết điểm.                                                                             |
-| 150 | Mốc kế hoạch năm năm đầu tiên 1928                            | Làm rõ câu hỏi về đẩy mạnh công nghiệp hóa theo kế hoạch; sửa mốc thay vì giữ đầu những năm 1930.                                                           |
-| 190 | Tiền tượng trưng, cần làm rõ                                  | Định nghĩa không phù hợp tiền vàng nhưng lựa chọn tiền quy ước có thể gần nghĩa; không dùng câu này để chấm chắc chắn. Đồng thời tách phần câu tiếp bị lẫn. |
-| 238 | Tư bản sản xuất                                               | Phân chia bất biến/khả biến áp dụng cho các bộ phận tư bản sản xuất.                                                                                        |
-| 256 | Độc quyền nhà nước                                            | Phân công xã hội làm tăng nhu cầu đầu tư ngành quy mô lớn và điều tiết chung.                                                                               |
-| 275 | Giá trị có thể thay đổi                                       | Phụ thuộc thời gian lao động xã hội cần thiết; không cố định vĩnh viễn hoặc luôn biến đổi vô điều kiện.                                                     |
-| 283 | Quy luật có tính lịch sử                                      | Không chấp nhận ý cho rằng quy luật khách quan do con người tùy đặt ra.                                                                                     |
-| 386 | Điều kiện tăng năng suất                                      | Máy móc không phải nguồn tự tạo giá trị thặng dư.                                                                                                           |
-| 392 | Biểu hiện bằng tiền của giá trị sức lao động                  | Không nhầm giá trị lao động hoặc biểu hiện tiền của giá cả.                                                                                                 |
-| 409 | Hai công thức cùng đúng                                       | m/v và tỷ lệ thời gian thặng dư/tất yếu cùng phản ánh tỷ suất giá trị thặng dư.                                                                             |
-| 450 | Có công dụng, giá cả nhưng không trực tiếp do lao động tạo ra | Phân biệt giá cả quyền/tài nguyên với giá trị lao động của hàng hóa thông thường.                                                                           |
+| Câu | Hiệu chỉnh                                                    | Căn cứ nội dung                                                                                                       |
+| --- | ------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| 70  | Trọng nông                                                    | Trường phái chuyển trọng tâm từ lưu thông sang sản xuất, trước hết nông nghiệp.                                       |
+| 71  | Thể chế chưa đầy đủ                                           | Đây là lý do hoàn thiện; có nhiều loại thị trường tự nó không phải khuyết điểm.                                       |
+| 150 | Mốc kế hoạch năm năm đầu tiên 1928                            | Làm rõ câu hỏi về đẩy mạnh công nghiệp hóa theo kế hoạch; sửa mốc thay vì giữ đầu những năm 1930.                     |
+| 190 | Tiền tượng trưng                                              | Sức mua vượt giá trị vật liệu hoặc chi phí tạo ra nó; giữ khóa tiền tượng trưng. Đồng thời tách phần câu tiếp bị lẫn. |
+| 238 | Tư bản sản xuất                                               | Phân chia bất biến/khả biến áp dụng cho các bộ phận tư bản sản xuất.                                                  |
+| 256 | Độc quyền nhà nước                                            | Phân công xã hội làm tăng nhu cầu đầu tư ngành quy mô lớn và điều tiết chung.                                         |
+| 275 | Giá trị có thể thay đổi                                       | Phụ thuộc thời gian lao động xã hội cần thiết; không cố định vĩnh viễn hoặc luôn biến đổi vô điều kiện.               |
+| 283 | Quy luật có tính lịch sử                                      | Không chấp nhận ý cho rằng quy luật khách quan do con người tùy đặt ra.                                               |
+| 386 | Điều kiện tăng năng suất                                      | Máy móc không phải nguồn tự tạo giá trị thặng dư.                                                                     |
+| 392 | Biểu hiện bằng tiền của giá trị sức lao động                  | Không nhầm giá trị lao động hoặc biểu hiện tiền của giá cả.                                                           |
+| 409 | Hai công thức cùng đúng                                       | m/v và tỷ lệ thời gian thặng dư/tất yếu cùng phản ánh tỷ suất giá trị thặng dư.                                       |
+| 450 | Có công dụng, giá cả nhưng không trực tiếp do lao động tạo ra | Phân biệt giá cả quyền/tài nguyên với giá trị lao động của hàng hóa thông thường.                                     |
 
 Những lỗi công thức được sửa ngay trong lựa chọn, ví dụ câu 271 là quy luật sản xuất giá trị thặng dư và câu 301 có chi phí k = c + v. Câu 80 làm rõ tăng 100 điểm phần trăm; câu 83 bỏ mâu thuẫn hai số lượng sản phẩm. Tất cả thay đổi có bản ghi; bộ 526 câu ban đầu được lưu riêng để đối chiếu lịch sử.
 
-## Câu chưa đủ rõ
+## 15 câu được đưa lại vào chấm điểm và thi thử
 
 Các ID: **52, 123, 149, 162, 190, 206, 209, 228, 274, 297, 345, 360, 440, 480, 535**.
 
-Ví dụ 52 có lựa chọn gần trùng, 274 có stem không khớp lựa chọn, 360 có hai công thức có thể tương đương dưới giả định p = m, 535 hỏi nguyên nhân lịch sử “quyết định nhất” khi chưa có tiêu chí. Web hiển thị lưu ý và đoạn giải thích, không tô đáp án chắc chắn cho các câu này; không tính vào độ chính xác và không lấy vào đề thi.
+Theo chỉ dẫn mới của người dùng, giữ nguyên câu hỏi, lựa chọn và khóa đáp án hiện có của 15 câu trên. Tất cả được chấm đúng/sai, tính vào độ chính xác và có thể xuất hiện trong đề 60 câu. Đã bỏ trạng thái cần làm rõ, viết lại giải thích theo khái niệm và cách khái quát của học phần Kinh tế chính trị Mác–Lênin.
+
+Đây là quy ước chấm của bộ ôn tập, không phải thay đổi lý luận để hợp thức hóa mọi câu chữ. Ví dụ câu 274 vẫn giải thích điều kiện ra đời sản xuất hàng hóa là phân công lao động xã hội và sự tách biệt tương đối về kinh tế, đồng thời phân biệt với ý tăng sản lượng trong đáp án quy ước. Câu 345 vẫn nêu giá trị thặng dư là nguồn của tích lũy và khối lượng của nó có ảnh hưởng đến quy mô tích lũy. Câu 209 không phủ nhận mối liên hệ giữa tích lũy, sự giàu có và mâu thuẫn xã hội. Câu 360 giải thích định nghĩa theo p và điều kiện có thể thay p bằng m.
 
 ## Tài liệu đã tham khảo để đối chiếu
 
@@ -63,4 +65,4 @@ Các liên kết sau dùng đối chiếu khái niệm cơ bản hoặc mốc c�
 
 Chỉnh giải thích tại `data/explanations/`, câu tách tại `data/alternate-questions.json`, và hiệu chỉnh tại `data/editorial-updates.json`, rồi chạy `npm run data:build`. Script xác thực tính đầy đủ, sinh JSON runtime và báo cáo. Không ghi đè trực tiếp file runtime nếu muốn giữ quy trình tái tạo được.
 
-Nội dung vẫn cần được đối chiếu với giáo trình và quy ước ra đề của lớp, đặc biệt cách phân kỳ lịch sử, thuật ngữ theo mô hình tiền vàng và những câu được đánh dấu cần làm rõ.
+Nội dung vẫn cần được đối chiếu với giáo trình và quy ước ra đề của lớp, đặc biệt cách phân kỳ lịch sử, thuật ngữ theo mô hình tiền vàng và cách hiểu đáp án quy ước ở những câu diễn đạt chưa chặt chẽ.

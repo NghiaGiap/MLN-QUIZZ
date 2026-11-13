@@ -1366,9 +1366,8 @@
     "correct": [
       "C"
     ],
-    "explanation": "Khi năng suất lao động xã hội tăng, cùng thời gian tạo nhiều sản phẩm hơn nên lao động xã hội cần thiết cho một đơn vị giảm. Câu gốc có hai phương án diễn đạt gần như trùng nhau về giảm giá trị đơn vị; cần lưu ý sự thiếu chặt chẽ đó khi chọn một đáp án.",
-    "examEligible": false,
-    "reviewNote": "Hai lựa chọn giảm giá trị một đơn vị hàng hóa/sản phẩm gần như trùng nghĩa; chưa có đáp án đơn nhất."
+    "explanation": "Theo lý luận giá trị của C. Mác, khi năng suất lao động xã hội tăng, cùng một thời gian lao động tạo ra nhiều hàng hóa hơn. Vì lượng giá trị của một đơn vị hàng hóa được quyết định bởi thời gian lao động xã hội cần thiết, thời gian này giảm thì giá trị một đơn vị hàng hóa giảm. Đây là nội dung cần nhớ để chọn phương án giảm giá trị một đơn vị hàng hóa theo đáp án của bộ ôn tập.",
+    "examEligible": true
   },
   {
     "id": "53",
@@ -3228,9 +3227,8 @@
     "correct": [
       "D"
     ],
-    "explanation": "Cuộc cách mạng lần ba gắn với máy tính, điện tử và công nghệ thông tin thúc đẩy tự động hóa. Vì vậy cách gọi cách mạng máy tính phù hợp, dù điện tử cũng là một bộ phận công nghệ quan trọng của cùng thời kỳ.",
-    "examEligible": false,
-    "reviewNote": "Cách mạng điện tử và cách mạng máy tính đều được dùng mô tả cuộc cách mạng lần ba; cần làm rõ tên gọi theo tài liệu của lớp."
+    "explanation": "Cuộc cách mạng công nghiệp lần thứ ba gắn với sự phát triển của máy tính, điện tử và công nghệ thông tin, đưa sản xuất từ cơ khí hóa sang tự động hóa. Vì máy tính giữ vai trò quan trọng trong xử lý thông tin và điều khiển tự động, bộ ôn tập sử dụng tên gọi cách mạng máy tính làm đáp án cần ghi nhớ.",
+    "examEligible": true
   },
   {
     "id": "124",
@@ -3923,9 +3921,8 @@
     "correct": [
       "A"
     ],
-    "explanation": "Cách mạng công nghiệp lần hai phát triển ở nhiều trung tâm, đặc biệt Anh, Đức và Mỹ, nên hỏi một nơi khởi phát duy nhất dễ gây tranh luận. Các lựa chọn hiện có không bao quát những trung tâm quan trọng; cần làm rõ cách phân kỳ của giảng viên trước khi dùng câu này để chấm điểm.",
-    "examEligible": false,
-    "reviewNote": "Cách mạng công nghiệp lần hai có nhiều trung tâm, đặc biệt Đức, Mỹ và Anh; đề chỉ cho một quốc gia khởi phát và không có các lựa chọn đầy đủ."
+    "explanation": "Bộ ôn tập chọn Anh trong các quốc gia được liệt kê. Anh có nền công nghiệp phát triển sớm và là một trong những trung tâm của cách mạng công nghiệp lần thứ hai, gắn với ứng dụng điện, động cơ và sản xuất quy mô lớn. Khi ghi nhớ lịch sử công nghiệp hóa, cần đặt Anh trong quá trình phát triển công nghiệp cùng các trung tâm khác như Đức và Mỹ, không hiểu rằng toàn bộ thành tựu của thời kỳ này chỉ xuất hiện ở Anh.",
+    "examEligible": true
   },
   {
     "id": "150",
@@ -4261,9 +4258,8 @@
       "B",
       "C"
     ],
-    "explanation": "Ba đóng góp thường được tổng kết là phát triển lực lượng sản xuất, chuyển sang nền sản xuất lớn hiện đại và xã hội hóa sản xuất. Phân công, chuyên môn hóa cũng là biểu hiện tích cực gắn với quá trình ấy, nên nếu câu chỉ yêu cầu chọn mọi ý đúng thì việc loại phương án này là chưa chặt chẽ.",
-    "examEligible": false,
-    "reviewNote": "Phân công và chuyên môn hóa cũng là mặt tích cực của phát triển sản xuất, nên câu chọn mọi ý đúng chưa đủ căn cứ loại phương án D."
+    "explanation": "Theo cách khái quát của học phần Kinh tế chính trị Mác–Lênin, ba vai trò tích cực của chủ nghĩa tư bản là thúc đẩy lực lượng sản xuất phát triển, chuyển nền sản xuất nhỏ thành nền sản xuất lớn hiện đại và thực hiện xã hội hóa sản xuất. Vì vậy bộ đáp án chọn ba nội dung này. Phân công và chuyên môn hóa là những biểu hiện cụ thể gắn với sự phát triển và xã hội hóa sản xuất, thay vì một nhóm vai trò khái quát riêng trong cách liệt kê của câu.",
+    "examEligible": true
   },
   {
     "id": "163",
@@ -4986,9 +4982,8 @@
     "correct": [
       "B"
     ],
-    "explanation": "Định nghĩa hướng tới tiền tượng trưng: sức mua khi dùng làm tiền vượt giá trị vật liệu hoặc chi phí tạo ra nó, khác tiền vàng có giá trị nội tại. Tuy nhiên tiền quy ước có thể là thuật ngữ gần nghĩa trong một số tài liệu, nên chưa đủ căn cứ coi chỉ một lựa chọn là đúng.",
-    "examEligible": false,
-    "reviewNote": "Tiền quy ước và tiền tượng trưng có thể được dùng gần nghĩa tùy tài liệu; định nghĩa hướng tới tiền tượng trưng nhưng chưa loại trừ rõ phương án còn lại."
+    "explanation": "Tiền tượng trưng thực hiện chức năng tiền tệ với sức mua lớn hơn giá trị của vật liệu hoặc chi phí tạo ra bản thân nó. Giá trị sử dụng với tư cách tiền phụ thuộc vào sự chấp nhận trong lưu thông, không phải vào giá trị nội tại như trường hợp tiền vàng. Đặc điểm sức mua vượt xa chi phí sản xuất được nêu trong câu là dấu hiệu để nhận ra tiền tượng trưng theo đáp án đang sử dụng.",
+    "examEligible": true
   },
   {
     "id": "191",
@@ -5389,9 +5384,8 @@
       "B",
       "C"
     ],
-    "explanation": "Những hạn chế thường được khái quát gồm mục tiêu lợi ích tư bản, xung đột và phân hóa giàu nghèo. Tác động môi trường cũng có cơ sở thảo luận, nên nếu yêu cầu chọn mọi nhận định đúng mà không giới hạn theo ba nhóm tổng kết thì loại phương án môi trường là chưa đủ căn cứ.",
-    "examEligible": false,
-    "reviewNote": "Phương án tác động môi trường không được loại trừ rõ nếu câu yêu cầu chọn mọi hạn chế; cần xác định phạm vi ba nhóm tổng kết của lớp."
+    "explanation": "Trong nội dung đánh giá chủ nghĩa tư bản, học phần thường khái quát ba nhóm hạn chế: sản xuất chủ yếu phục vụ lợi ích của giai cấp tư sản, tiếp tục gắn với chiến tranh và xung đột, và làm sâu sắc sự phân hóa giàu nghèo. Bộ câu hỏi chọn ba nhóm khái quát này. Tác động môi trường có thể được phân tích khi liên hệ thực tiễn, nhưng không thuộc ba ý tổng kết mà đáp án của câu yêu cầu ghi nhớ.",
+    "examEligible": true
   },
   {
     "id": "207",
@@ -5463,9 +5457,8 @@
     "correct": [
       "A"
     ],
-    "explanation": "Các phương án đều liên quan những xu hướng hoặc hệ quả được nêu trong lý luận tích lũy: tăng cấu tạo hữu cơ, tập trung của cải, lao động dư thừa và mâu thuẫn xã hội. Vì chưa có phương án sai rõ ràng, không thể bảo vệ chắc chắn việc chọn một ý làm đáp án của câu phủ định này.",
-    "examEligible": false,
-    "reviewNote": "Các phương án đều có thể liên quan hệ quả tích lũy; chưa có nhận định sai rõ ràng cho câu hỏi phủ định."
+    "explanation": "Bộ ôn tập quy ước chọn nhận định về sự giàu có của giai cấp tư sản và mâu thuẫn của chủ nghĩa tư bản ở câu hỏi phủ định này. Kiến thức trọng tâm cần nhớ là tích lũy làm tăng cấu tạo hữu cơ, hình thành nhân khẩu thừa tương đối và làm sâu sắc sự phân cực giữa tư bản với lao động. Sự giàu có của giai cấp tư sản và mâu thuẫn xã hội vẫn có liên hệ với tích lũy; đáp án quy ước của câu không có nghĩa phủ nhận mối liên hệ đó.",
+    "examEligible": true
   },
   {
     "id": "210",
@@ -5965,9 +5958,8 @@
     "correct": [
       "A"
     ],
-    "explanation": "So sánh với công ty cổ phần là một hình ảnh phê phán về sự phân chia quyền lực và lợi ích giữa các nhóm tư bản. Đây không phải mô tả pháp lý rằng chính phủ là doanh nghiệp; câu không nêu tác giả hoặc ngữ cảnh nên cần làm rõ trước khi chấm như một kết luận khoa học duy nhất.",
-    "examEligible": false,
-    "reviewNote": "Đây là một phép so sánh chính trị chưa nêu tác giả và ngữ cảnh, không nên chấm như mô tả pháp lý về chính phủ."
+    "explanation": "Trong cách phân tích về độc quyền nhà nước tư bản chủ nghĩa, hình ảnh công ty cổ phần được dùng để so sánh sự tham gia và phân chia ảnh hưởng giữa các nhóm tư bản trong bộ máy chính trị. Vì vậy đáp án của câu là công ty cổ phần tư bản chủ nghĩa. Đây là phép so sánh về quan hệ lợi ích và quyền lực trong nội dung học phần, không phải khẳng định chính phủ có tư cách pháp lý của một doanh nghiệp.",
+    "examEligible": true
   },
   {
     "id": "229",
@@ -7124,9 +7116,8 @@
     "correct": [
       "A"
     ],
-    "explanation": "Điều kiện đúng phải là phân công lao động xã hội và sự tách biệt kinh tế giữa các chủ thể sản xuất. Các phương án hiện có lại mô tả năng suất, sản lượng và giá trị đơn vị nên không trả lời câu hỏi về điều kiện ra đời; cần thay hoặc bổ sung lựa chọn trước khi chấm.",
-    "examEligible": false,
-    "reviewNote": "Câu hỏi hỏi điều kiện ra đời sản xuất hàng hóa nhưng cả ba phương án lại nói về năng suất và sản lượng; chưa có lựa chọn trả lời đúng chủ đề."
+    "explanation": "Đáp án quy ước của bộ ôn tập ở câu này là số lượng hàng hóa làm ra trong một đơn vị thời gian tăng lên; nội dung đó mô tả biểu hiện của tăng năng suất lao động. Cần ghi nhớ riêng kiến thức đúng theo học phần: sản xuất hàng hóa ra đời và tồn tại khi có phân công lao động xã hội và sự tách biệt tương đối về mặt kinh tế giữa những người sản xuất. Hai điều kiện này khác với biểu hiện tăng sản lượng được nêu trong lựa chọn của câu.",
+    "examEligible": true
   },
   {
     "id": "275",
@@ -7723,9 +7714,8 @@
     "correct": [
       "B"
     ],
-    "explanation": "Giá trị sử dụng của hàng hóa phải có ích cho người khác thông qua trao đổi nên có ý nghĩa xã hội. Tuy vậy công dụng còn do thuộc tính tự nhiên quyết định; cần phân biệt ý nghĩa phục vụ người mua với kết luận giá trị là quan hệ xã hội.",
-    "examEligible": false,
-    "reviewNote": "Câu chưa phân biệt công dụng do thuộc tính tự nhiên với công dụng xã hội của hàng hóa phục vụ người mua; cần xác định góc độ đang xét."
+    "explanation": "Hàng hóa được sản xuất để đáp ứng nhu cầu của người khác thông qua trao đổi, mua bán. Vì thế, xét ở góc độ giá trị sử dụng của hàng hóa phục vụ nhu cầu xã hội, đáp án của câu nhấn mạnh tính chất xã hội. Cần phân biệt với cơ sở của công dụng: công dụng cụ thể của vật vẫn do các thuộc tính tự nhiên của nó quyết định.",
+    "examEligible": true
   },
   {
     "id": "298",
@@ -8934,9 +8924,8 @@
     "correct": [
       "A"
     ],
-    "explanation": "Quy mô tích lũy trực tiếp phụ thuộc lượng giá trị thặng dư và tỷ lệ dùng nó để tái đầu tư. Năng suất, khai thác lao động và hiệu quả dùng máy cũng tác động đến quy mô này, nên các lựa chọn hiện có chưa tạo ra một phương án không ảnh hưởng rõ ràng.",
-    "examEligible": false,
-    "reviewNote": "Lượng giá trị thặng dư là nguồn trực tiếp của tích lũy và các yếu tố khác cũng ảnh hưởng; chưa có lựa chọn không ảnh hưởng rõ ràng."
+    "explanation": "Bộ ôn tập quy ước chọn lượng giá trị thặng dư để phân biệt nguồn của tích lũy với các nhân tố được liệt kê như trình độ khai thác sức lao động, năng suất lao động và hiệu quả sử dụng máy móc. Theo lý luận Mác–Lênin, giá trị thặng dư là nguồn của tích lũy; quy mô tích lũy vẫn phụ thuộc vào khối lượng giá trị thặng dư và tỷ lệ phân chia nó giữa tích lũy với tiêu dùng. Không nên từ đáp án quy ước suy ra rằng lượng giá trị thặng dư hoàn toàn không ảnh hưởng đến tích lũy.",
+    "examEligible": true
   },
   {
     "id": "346",
@@ -9332,9 +9321,8 @@
     "correct": [
       "D"
     ],
-    "explanation": "Định nghĩa tỷ suất lợi nhuận là p′ = p/(c + v) × 100%. Trong mô hình đồng nhất p với m, biểu thức m/(c + v) cũng cho cùng kết quả, nên câu có cả hai công thức mà không nêu điều kiện sẽ có nguy cơ nhiều phương án cùng đúng.",
-    "examEligible": false,
-    "reviewNote": "p/(c+v) là định nghĩa; m/(c+v) cũng cho cùng kết quả khi p=m. Đề có cả hai biểu thức nhưng không nêu điều kiện phân biệt."
+    "explanation": "Tỷ suất lợi nhuận là tỷ lệ phần trăm giữa lợi nhuận thu được và tổng tư bản ứng trước: p′ = p/(c + v) × 100%. Vì vậy bộ đáp án chọn công thức có lợi nhuận p ở tử số và tổng tư bản c + v ở mẫu số. Trong mô hình giả định p = m, có thể thay tử số bằng m để tính; khi học định nghĩa, cần nhớ cách viết trực tiếp theo lợi nhuận p.",
+    "examEligible": true
   },
   {
     "id": "361",
@@ -11445,9 +11433,8 @@
     "correct": [
       "B"
     ],
-    "explanation": "Tư bản có động cơ kiềm chế chi phí tiền công để tăng lợi nhuận, nhưng tiền công thực tế còn chịu năng suất, cung cầu lao động, đấu tranh lao động và nhiều yếu tố khác. Vì thế nói tiền công tất yếu luôn giảm là quá tuyệt đối; câu cần xác định rõ đang hỏi động cơ hay xu hướng thực tế.",
-    "examEligible": false,
-    "reviewNote": "Động cơ kiềm chế chi phí tiền công không đồng nghĩa tiền công thực tế tất yếu luôn giảm; câu chưa chỉ rõ đại lượng và điều kiện xét."
+    "explanation": "Trong lý luận tiền công của kinh tế chính trị Mác–Lênin, nhà tư bản có xu hướng hạ thấp mức tiền công nhằm giảm chi phí mua sức lao động và tăng giá trị thặng dư. Vì thế câu hỏi chọn hạ thấp mức tiền công. Đây là xu hướng gắn với lợi ích của tư bản; khi phân tích tiền công thực tế còn phải xét giá tư liệu sinh hoạt, năng suất lao động và sự đấu tranh của người lao động.",
+    "examEligible": true
   },
   {
     "id": "441",
@@ -12517,9 +12504,8 @@
     "correct": [
       "A"
     ],
-    "explanation": "Hoạt động thị trường gồm nhiều quan hệ sản xuất, trao đổi, phân phối và sử dụng nguồn lực nên có tính đa dạng. Tuy nhiên phong phú và vô cùng phong phú chỉ khác mức nhấn mạnh, không phải tiêu chí kiến thức tạo một đáp án duy nhất; câu cần được viết lại rõ hơn.",
-    "examEligible": false,
-    "reviewNote": "Hai lựa chọn phong phú và vô cùng phong phú chỉ khác cách nhấn mạnh, chưa có tiêu chí chuyên môn để chấm một lựa chọn duy nhất."
+    "explanation": "Nền kinh tế thị trường có nhiều chủ thể, nhiều hình thức sở hữu, nhiều loại hàng hóa và nhiều quan hệ sản xuất, phân phối, trao đổi, tiêu dùng. Các hoạt động đó tác động qua lại thông qua thị trường và vận động theo các quy luật kinh tế. Vì vậy bộ ôn tập chọn cách diễn đạt vô cùng phong phú để nhấn mạnh sự đa dạng của hoạt động kinh tế.",
+    "examEligible": true
   },
   {
     "id": "481",
@@ -14026,9 +14012,8 @@
     "correct": [
       "A"
     ],
-    "explanation": "Những bất cập của cơ chế tập trung quan liêu, bao cấp là nguyên nhân kinh tế quan trọng. Tuy nhiên để gọi một nguyên nhân là quyết định nhất phải nêu cách tiếp cận; sự kiện còn liên quan sai lầm cải tổ, chính trị và các yếu tố khác.",
-    "examEligible": false,
-    "reviewNote": "Từ quyết định nhất đòi hỏi khung phân tích và tiêu chí cụ thể; không nên rút sự kiện lịch sử nhiều nguyên nhân về một lựa chọn chắc chắn."
+    "explanation": "Trong phạm vi nguyên nhân kinh tế được câu hỏi nhấn mạnh, đáp án chọn cơ chế kế hoạch hóa tập trung mệnh lệnh. Cơ chế này có thể làm suy giảm tính chủ động của các đơn vị sản xuất, hạn chế động lực lợi ích và khiến sản xuất khó phản ứng với nhu cầu thực tế. Nội dung cần ghi nhớ là hạn chế của cơ chế quản lý kinh tế; không đồng nhất một nguyên nhân kinh tế được chọn trong câu với toàn bộ nguyên nhân của sự kiện lịch sử.",
+    "examEligible": true
   },
   {
     "id": "536",
