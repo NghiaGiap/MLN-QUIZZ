@@ -72,7 +72,7 @@ export default function useExam() {
     seconds,
     storageError,
     start: () => {
-      const next = createExam(bank);
+      const next = createExam(bank, Date.now(), exam?.optionOrders);
       setSeconds(3000);
       setExam(next);
     },

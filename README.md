@@ -1,13 +1,13 @@
 # Ôn. — Phòng học MLN122
 
-Web React thuần frontend dùng **526 câu hỏi và đáp án** trong PDF “Thẻ ghi nhớ_ MLN122 - CHUẨN NHUNG HOÀNG _ Quizlet.pdf”. Dự án được đặt trong thư mục **MLN111** theo yêu cầu; tên học phần trên giao diện là **MLN122** theo tài liệu nguồn.
+Web React thuần frontend dùng **526 câu hỏi và đáp án** trong PDF “Thẻ ghi nhớ_ MLN122 - CHUẨN NHUNG HOÀNG _ Quizlet.pdf”. Dự án hiện nằm trong thư mục **MLN122**.
 
 ## Chạy trên Windows
 
 Máy đã có sẵn dependencies. Mở terminal và chạy:
 
 ```powershell
-Set-Location 'D:\FPT_University_Study\FPT_FALL2026\MLN111'
+Set-Location 'D:\FPT_University_Study\FPT_FALL2026\MLN122'
 npm.cmd run dev
 ```
 
@@ -17,15 +17,17 @@ Nếu chuyển dự án sang máy khác, cài Node.js 22.12 trở lên và chạ
 
 ## Cách sử dụng
 
-- **Ôn tập:** chọn một hoặc nhiều phương án rồi nhấn **Kiểm tra đáp án**. Đáp án đúng và ghi chú nguồn xuất hiện sau khi kiểm tra. **Làm lại** để trả lời lại câu đó.
+- **Ôn tập:** chọn một hoặc nhiều phương án rồi nhấn **Kiểm tra đáp án**. Đáp án đúng và ghi chú nguồn xuất hiện sau khi kiểm tra. **Làm lại** xóa lựa chọn của câu đó và xáo lại nội dung đáp án; nhãn luôn theo A, B, C, D (hoặc E).
 - **Điều hướng:** dùng Câu trước/Câu tiếp, bản đồ câu hỏi hoặc tìm kiếm. Nhập một số từ 1 đến 526 để đến câu gốc tương ứng; cũng có thể tìm bằng từ khóa không dấu.
-- **Xáo câu hỏi:** đổi thứ tự ôn tập, vẫn giữ lựa chọn và kết quả trong phiên hiện tại. Thứ tự các phương án không đổi.
-- **Thi thử:** tạo đề gồm 60 câu ngẫu nhiên không trùng, làm trong 50 phút. Bản đồ hiển thị câu đã chọn; có thể sửa lựa chọn trước khi nộp. Không công bố đáp án hoặc liên kết PDF trong vùng câu hỏi trước khi nộp.
+- **Xáo câu hỏi:** đổi thứ tự ôn tập, vẫn giữ lựa chọn, thứ tự đáp án và kết quả trong phiên hiện tại. Phiên ôn tập mới xáo đáp án của toàn bộ câu hỏi.
+- **Thi thử:** tạo đề gồm 60 câu ngẫu nhiên không trùng, làm trong 50 phút. Mỗi đề mới xáo nội dung đáp án, giữ nhãn A–B–C–D–E. Quay lại câu đã làm hoặc tải lại trang giữ nguyên thứ tự và lựa chọn của bài đang thi. Bản đồ hiển thị câu đã chọn; có thể sửa lựa chọn trước khi nộp. Không công bố đáp án hoặc liên kết PDF trong vùng câu hỏi trước khi nộp.
 - **Nộp bài:** hiển thị xác nhận, điểm thang 10, số câu đúng/sai/chưa trả lời và đáp án từng câu. Mỗi câu đúng có trọng số bằng nhau; câu nhiều đáp án chỉ đúng khi chọn đủ và không chọn thừa.
 - **Hết giờ:** tự động nộp, kể cả khi đang ở chế độ ôn tập. Khi quay lại tab hoặc tải lại trang, thời gian được tính từ thời điểm hết hạn cố định.
 - **Khôi phục:** bài thi, lựa chọn, vị trí câu và kết quả được lưu trong localStorage trên cùng trình duyệt và địa chỉ truy cập. Đề mới thay bài trước. Tiến độ ôn tập tồn tại trong phiên trang hiện tại.
 
 Không cần tài khoản, API key, cơ sở dữ liệu hoặc backend ứng dụng. Dữ liệu không gửi đến dịch vụ bên ngoài. Nên làm bài trong một tab; đổi trình duyệt, xóa dữ liệu trình duyệt hoặc đổi cổng/địa chỉ sẽ dùng vùng lưu khác. Nếu trình duyệt chặn lưu, web hiện cảnh báo.
+
+Đáp án sau kiểm tra hiển thị cả **chữ cái ở thứ tự hiện tại** và **chữ cái trong PDF gốc** để đối chiếu. Chấm điểm dựa trên lựa chọn gốc, không dựa trên chữ cái hiển thị sau xáo. Với các câu đã xáo, cụm “phương án trên”/“đáp án trên” được hiển thị thành “phương án còn lại”/“đáp án còn lại” để không phụ thuộc vị trí; dữ liệu gốc và ghi chú PDF vẫn được giữ nguyên. Bài thi cũ lưu trước khi cập nhật vẫn tiếp tục bằng thứ tự ban đầu.
 
 ## Nội dung nguồn
 

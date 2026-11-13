@@ -15,23 +15,48 @@ test("practice checks wrong/right choices, keeps feedback on navigation, and shu
   await expect(
     page.getByRole("button", { name: "Kiểm tra đáp án", exact: true }),
   ).toBeDisabled();
-  await page.getByRole("radio", { name: /^A / }).check();
+  const initialOrder = await page.locator(".option-copy").allTextContents();
+  expect(await page.locator(".option-letter").allTextContents()).toEqual([
+    "A",
+    "B",
+    "C",
+    "D",
+  ]);
+  await page.locator('.question-card input[value="A"]').check();
   await page
     .getByRole("button", { name: "Kiểm tra đáp án", exact: true })
     .click();
   await expect(page.getByRole("status")).toContainText("Chưa chính xác");
   await expect(page.getByRole("status")).toContainText(
-    "Đáp án theo tài liệu: D",
+    "Đáp án trong PDF gốc: D",
   );
   await page.getByRole("button", { name: "Làm lại", exact: true }).click();
-  await page.getByRole("radio", { name: /^D / }).check();
+  const retryOrder = await page.locator(".option-copy").allTextContents();
+  expect(retryOrder).not.toEqual(initialOrder);
+  expect(await page.locator(".option-letter").allTextContents()).toEqual([
+    "A",
+    "B",
+    "C",
+    "D",
+  ]);
+  const rightOption = page
+    .locator(".option")
+    .filter({ has: page.locator('input[value="D"]') });
+  const rightLabel = await rightOption.locator(".option-letter").innerText();
+  await page.locator('.question-card input[value="D"]').check();
   await page
     .getByRole("button", { name: "Kiểm tra đáp án", exact: true })
     .click();
   await expect(page.getByRole("status")).toContainText("Chính xác.");
+  await expect(page.getByRole("status")).toContainText(
+    `Đáp án đúng: ${rightLabel}`,
+  );
   await page.getByRole("button", { name: "Câu tiếp", exact: true }).click();
   await page.getByRole("button", { name: "Câu trước", exact: true }).click();
-  await expect(page.getByRole("radio", { name: /^D / })).toBeChecked();
+  await expect(page.locator('.question-card input[value="D"]')).toBeChecked();
+  expect(await page.locator(".option-copy").allTextContents()).toEqual(
+    retryOrder,
+  );
   await page.getByRole("button", { name: "Xáo câu hỏi", exact: true }).click();
   await expect(
     page.getByText("Đã xáo thứ tự câu hỏi.", { exact: false }),
@@ -48,7 +73,7 @@ test("search finds source IDs, multiple answers require the full set, and empty 
   await search.fill(multi.id);
   await expect(page.locator(".question-title")).toHaveText(multi.question);
   await page
-    .getByRole("checkbox", { name: new RegExp(`^${multi.correct[0]} `) })
+    .locator(`.question-card input[value="${multi.correct[0]}"]`)
     .check();
   await page
     .getByRole("button", { name: "Kiểm tra đáp án", exact: true })
@@ -56,7 +81,7 @@ test("search finds source IDs, multiple answers require the full set, and empty 
   await expect(page.getByRole("status")).toContainText("Chưa chính xác");
   await page.getByRole("button", { name: "Làm lại", exact: true }).click();
   for (const key of multi.correct)
-    await page.getByRole("checkbox", { name: new RegExp(`^${key} `) }).check();
+    await page.locator(`.question-card input[value="${key}"]`).check();
   await page
     .getByRole("button", { name: "Kiểm tra đáp án", exact: true })
     .click();
@@ -104,6 +129,7 @@ test("exam samples 60 unique questions, persists choices/index/deadline, and gra
   );
   expect(restored.endsAt).toBe(initial.endsAt);
   expect(restored.ids).toEqual(initial.ids);
+  expect(restored.optionOrders).toEqual(initial.optionOrders);
   expect(restored.answers[first.id].sort()).toEqual(first.correct.toSorted());
   await page.getByRole("button", { name: "Nộp bài", exact: true }).click();
   await expect(page.getByRole("dialog")).toContainText(

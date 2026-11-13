@@ -8,6 +8,8 @@ import {
   remainingSeconds,
   restoreExam,
   isCorrect,
+  shuffleOptionKeys,
+  displayOptions,
 } from "../src/lib/quiz.js";
 
 const bank = JSON.parse(
@@ -39,6 +41,78 @@ test("shuffle preserves the complete bank and does not mutate input", () => {
   assert.notDeepEqual(result, input);
 });
 
+test("retry changes option order while labels stay sequential and scoring uses source keys", () => {
+  const question = bank[0];
+  const original = question.options.map((o) => o.key);
+  const order = shuffleOptionKeys(question, original, () => 0.999);
+  assert.notDeepEqual(order, original);
+  assert.deepEqual(order.toSorted(), original.toSorted());
+  const options = displayOptions(question, order);
+  assert.deepEqual(
+    options.map((o) => o.label),
+    ["A", "B", "C", "D"],
+  );
+  for (const option of options) {
+    assert.equal(
+      option.text,
+      question.options.find((o) => o.key === option.key).text,
+    );
+  }
+  const correctOption = options.find((o) => question.correct.includes(o.key));
+  assert.equal(isCorrect(question, [correctOption.key]), true);
+  assert.notEqual(correctOption.label, correctOption.key);
+  assert.deepEqual(
+    question.options.map((o) => o.key),
+    original,
+  );
+  const retry = shuffleOptionKeys(question, order, () => 0.999);
+  assert.notDeepEqual(retry, order);
+});
+
+test("option labels cover three to five choices and preserve multiple-answer identity", () => {
+  for (const question of bank) {
+    const options = displayOptions(question, shuffleOptionKeys(question));
+    assert.deepEqual(
+      options.map((o) => o.label),
+      "ABCDE".slice(0, question.options.length).split(""),
+    );
+    assert.equal(
+      isCorrect(
+        question,
+        options
+          .filter((o) => question.correct.includes(o.key))
+          .map((o) => o.key),
+      ),
+      true,
+    );
+  }
+});
+
+test("shuffled all-of-the-above wording stays meaningful; source text is preserved", () => {
+  const question = {
+    options: [
+      { key: "A", text: "Tất cả phương án trên" },
+      { key: "B", text: "Các đáp án trên đều sai" },
+    ],
+  };
+  const options = displayOptions(question, ["B", "A"]);
+  assert.equal(options[0].displayText, "Các đáp án còn lại đều sai");
+  assert.equal(options[1].displayText, "Tất cả phương án còn lại");
+  assert.equal(options[1].text, "Tất cả phương án trên");
+  assert.equal(
+    displayOptions(question)[0].displayText,
+    "Tất cả phương án trên",
+  );
+});
+
+test("a new exam reshuffles repeated questions compared with the previous exam", () => {
+  const subset = bank.slice(0, 60);
+  const previous = createExam(subset, 1000);
+  const next = createExam(subset, 2000, previous.optionOrders);
+  for (const id of next.ids)
+    assert.notDeepEqual(next.optionOrders[id], previous.optionOrders[id]);
+});
+
 test("exam samples exactly 60 unique questions and gives precisely 50 minutes", () => {
   const exam = createExam(bank, 1000);
   assert.equal(exam.ids.length, 60);
@@ -46,6 +120,16 @@ test("exam samples exactly 60 unique questions and gives precisely 50 minutes", 
   assert.equal(exam.endsAt - exam.startedAt, 50 * 60 * 1000);
   assert.deepEqual(exam.answers, {});
   assert.ok(exam.ids.every((id) => bank.some((q) => q.id === id)));
+  assert.equal(Object.keys(exam.optionOrders).length, 60);
+  for (const id of exam.ids) {
+    assert.deepEqual(
+      exam.optionOrders[id].toSorted(),
+      bank
+        .find((q) => q.id === id)
+        .options.map((o) => o.key)
+        .toSorted(),
+    );
+  }
 });
 
 test("grade treats unanswered as unanswered, counts correct and wrong, scales to 10", () => {
@@ -111,4 +195,25 @@ test("restore preserves deadline and answers; rejects corrupt, duplicate or unkn
     null,
   );
   assert.equal(restoreExam(JSON.stringify({ ...exam, index: 60 }), bank), null);
+  assert.equal(
+    restoreExam(JSON.stringify({ ...exam, optionOrders: {} }), bank),
+    null,
+  );
+  assert.equal(
+    restoreExam(
+      JSON.stringify({
+        ...exam,
+        optionOrders: { ...exam.optionOrders, [exam.ids[0]]: ["A", "A"] },
+      }),
+      bank,
+    ),
+    null,
+  );
+  const legacy = { ...exam };
+  delete legacy.optionOrders;
+  assert.deepEqual(restoreExam(JSON.stringify(legacy), bank), legacy);
+  assert.deepEqual(
+    displayOptions(bank[0]).map((o) => o.key),
+    bank[0].options.map((o) => o.key),
+  );
 });

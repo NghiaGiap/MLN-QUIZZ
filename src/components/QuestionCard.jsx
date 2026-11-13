@@ -7,10 +7,11 @@ import {
   X,
   ExternalLink,
 } from "lucide-react";
-import { isCorrect } from "../lib/quiz.js";
+import { displayOptions, isCorrect } from "../lib/quiz.js";
 
 export default function QuestionCard({
   question,
+  optionOrder,
   index,
   total,
   selected,
@@ -23,6 +24,10 @@ export default function QuestionCard({
 }) {
   const multiple = question.correct.length > 1;
   const correct = isCorrect(question, selected);
+  const options = displayOptions(question, optionOrder);
+  const correctLabels = options
+    .filter((option) => question.correct.includes(option.key))
+    .map((option) => option.label);
   return (
     <section className="question-card" aria-label="Nội dung câu hỏi">
       <div className="question-meta">
@@ -43,7 +48,7 @@ export default function QuestionCard({
             : "Chọn một phương án bạn cho là đúng."}
         </p>
         <div className="options">
-          {question.options.map((option) => {
+          {options.map((option) => {
             const chosen = selected.includes(option.key);
             const right = revealed && question.correct.includes(option.key);
             const wrong = revealed && chosen && !right;
@@ -59,8 +64,8 @@ export default function QuestionCard({
                   checked={chosen}
                   onChange={() => onSelect(option.key)}
                 />
-                <span className="option-letter">{option.key}</span>
-                <span className="option-copy">{option.text}</span>
+                <span className="option-letter">{option.label}</span>
+                <span className="option-copy">{option.displayText}</span>
                 <span className="option-indicator" aria-hidden="true">
                   {right ? (
                     <Check size={17} />
@@ -92,7 +97,9 @@ export default function QuestionCard({
                   : "Bạn chưa trả lời câu này."}
             </strong>
             <p>
-              Đáp án theo tài liệu: <b>{question.correct.join(", ")}</b>
+              Đáp án đúng: <b>{correctLabels.join(", ")}</b>
+              {" · Đáp án trong PDF gốc: "}
+              {question.correct.join(", ")}
               {question.note ? ` · Ghi chú: ${question.note}` : ""}
             </p>
           </div>

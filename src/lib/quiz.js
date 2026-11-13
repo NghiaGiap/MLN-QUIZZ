@@ -10,10 +10,43 @@ export function shuffle(items, random = Math.random) {
   return result;
 }
 
-export function createExam(bank, now = Date.now()) {
+export function shuffleOptionKeys(
+  question,
+  previous = question.options.map((o) => o.key),
+  random = Math.random,
+) {
+  const order = shuffle(previous, random);
+  // A fresh attempt must visibly change the order, even if random returns the same permutation.
+  if (
+    order.length > 1 &&
+    order.every((key, index) => key === previous[index])
+  ) {
+    order.push(order.shift());
+  }
+  return order;
+}
+
+export function displayOptions(question, order) {
+  const options = order
+    ? order.map((key) => question.options.find((o) => o.key === key))
+    : question.options;
+  return options.map((option, index) => ({
+    ...option,
+    label: String.fromCharCode(65 + index),
+    displayText: order
+      ? option.text.replace(/((?:phương án|đáp án)) trên/gi, "$1 còn lại")
+      : option.text,
+  }));
+}
+
+export function createExam(bank, now = Date.now(), previousOrders = {}) {
   if (bank.length < 60) throw new Error("Cần ít nhất 60 câu hỏi để tạo đề.");
+  const questions = shuffle(bank).slice(0, 60);
   return {
-    ids: shuffle(bank.map((q) => q.id)).slice(0, 60),
+    ids: questions.map((q) => q.id),
+    optionOrders: Object.fromEntries(
+      questions.map((q) => [q.id, shuffleOptionKeys(q, previousOrders[q.id])]),
+    ),
     startedAt: now,
     endsAt: now + EXAM_SECONDS * 1000,
     answers: {},
@@ -86,6 +119,27 @@ export function restoreExam(raw, bank) {
       Array.isArray(exam.answers)
     )
       return null;
+    // Older saved exams used the original PDF order; keep those attempts unchanged.
+    if (exam.optionOrders !== undefined) {
+      if (
+        !exam.optionOrders ||
+        typeof exam.optionOrders !== "object" ||
+        Array.isArray(exam.optionOrders) ||
+        Object.keys(exam.optionOrders).length !== 60
+      )
+        return null;
+      for (const id of exam.ids) {
+        const keys = exam.optionOrders[id];
+        const expected = byId.get(id).options.map((o) => o.key);
+        if (
+          !Array.isArray(keys) ||
+          keys.length !== expected.length ||
+          new Set(keys).size !== keys.length ||
+          !keys.every((key) => expected.includes(key))
+        )
+          return null;
+      }
+    }
     for (const [id, keys] of Object.entries(exam.answers)) {
       const question = byId.get(id);
       if (

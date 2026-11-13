@@ -15,7 +15,12 @@ import {
   Sparkles,
 } from "lucide-react";
 import bank from "./data/questions.json";
-import { formatTime, isCorrect, shuffle } from "./lib/quiz.js";
+import {
+  formatTime,
+  isCorrect,
+  shuffle,
+  shuffleOptionKeys,
+} from "./lib/quiz.js";
 import useExam from "./useExam.js";
 import QuestionCard from "./components/QuestionCard.jsx";
 import QuestionNavigator from "./components/QuestionNavigator.jsx";
@@ -41,6 +46,9 @@ export default function App() {
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState({});
   const [checked, setChecked] = useState({});
+  const [optionOrders, setOptionOrders] = useState(() =>
+    Object.fromEntries(bank.map((q) => [q.id, shuffleOptionKeys(q)])),
+  );
   const [search, setSearch] = useState("");
   const [dialog, setDialog] = useState(null);
   const [notice, setNotice] = useState("");
@@ -355,6 +363,11 @@ export default function App() {
                 <QuestionCard
                   key={`${inExam}-${question.id}`}
                   question={question}
+                  optionOrder={
+                    inExam
+                      ? exam.optionOrders?.[question.id]
+                      : optionOrders[question.id]
+                  }
                   index={currentIndex}
                   total={questions.length}
                   selected={currentAnswers[question.id] ?? []}
@@ -369,6 +382,13 @@ export default function App() {
                     }))
                   }
                   onReset={() => {
+                    setOptionOrders((current) => ({
+                      ...current,
+                      [question.id]: shuffleOptionKeys(
+                        question,
+                        current[question.id],
+                      ),
+                    }));
                     setChecked((current) => {
                       const next = { ...current };
                       delete next[question.id];
