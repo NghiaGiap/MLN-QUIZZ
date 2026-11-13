@@ -641,6 +641,43 @@ h1 {
   background: #fcf1eb;
   color: #834a36;
 }
+.answer-feedback.review,
+.review-warning {
+  background: #fbf3e7;
+  color: #785229;
+}
+.review-warning {
+  padding: 12px 14px;
+  border-left: 3px solid #b18b53;
+  font-size: 12px;
+  margin-bottom: 18px;
+  border-radius: 3px;
+}
+.explanation {
+  margin-top: 20px;
+  padding: 20px;
+  background: #f5f7f1;
+  border-left: 3px solid #8ca47a;
+  border-radius: 3px;
+}
+.explanation h3 {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.explanation p {
+  font-size: 14px;
+  line-height: 1.95;
+  color: #40563e;
+}
+.grid-number.review {
+  background: #fbf3e7;
+  color: #785229;
+  border-color: #d8c29f;
+}
 .answer-feedback strong {
   font-size: 12px;
   font-weight: 600;

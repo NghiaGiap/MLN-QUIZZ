@@ -60,9 +60,8 @@ if __name__ == '__main__':
     records = extract(sys.argv[1])
     bank = parse(records)
     (ROOT / 'data').mkdir(exist_ok=True)
-    (ROOT / 'src/data').mkdir(parents=True, exist_ok=True)
     (ROOT / 'data/extracted-raw.json').write_text(json.dumps(records, ensure_ascii=False, indent=2), encoding='utf-8')
-    (ROOT / 'src/data/questions.json').write_text(json.dumps(bank, ensure_ascii=False, indent=2), encoding='utf-8')
+    (ROOT / 'data/original-questions.json').write_text(json.dumps(bank, ensure_ascii=False, indent=2), encoding='utf-8')
     print('Cards:', len(bank))
     for question in bank:
         keys = [o['key'] for o in question['options']]

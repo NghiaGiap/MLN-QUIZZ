@@ -1,5 +1,6 @@
 export const EXAM_SECONDS = 50 * 60;
-export const STORAGE_KEY = "mln122-exam-v1";
+// A revised answer bank needs a fresh exam; old attempts must not be regraded silently.
+export const STORAGE_KEY = "mln122-exam-v2";
 
 export function shuffle(items, random = Math.random) {
   const result = [...items];
@@ -40,8 +41,10 @@ export function displayOptions(question, order) {
 }
 
 export function createExam(bank, now = Date.now(), previousOrders = {}) {
-  if (bank.length < 60) throw new Error("Cần ít nhất 60 câu hỏi để tạo đề.");
-  const questions = shuffle(bank).slice(0, 60);
+  const eligible = bank.filter((q) => q.examEligible !== false);
+  if (eligible.length < 60)
+    throw new Error("Cần ít nhất 60 câu hỏi đủ dữ kiện để tạo đề.");
+  const questions = shuffle(eligible).slice(0, 60);
   return {
     ids: questions.map((q) => q.id),
     optionOrders: Object.fromEntries(
@@ -92,7 +95,9 @@ export function restoreExam(raw, bank) {
       !Array.isArray(exam.ids) ||
       exam.ids.length !== 60 ||
       new Set(exam.ids).size !== 60 ||
-      !exam.ids.every((id) => byId.has(id))
+      !exam.ids.every(
+        (id) => byId.has(id) && byId.get(id).examEligible !== false,
+      )
     )
       return null;
     if (

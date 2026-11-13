@@ -4,7 +4,7 @@ import { readFileSync } from "node:fs";
 const bank = JSON.parse(
   readFileSync(new URL("../src/data/questions.json", import.meta.url)),
 );
-const storageKey = "mln122-exam-v1";
+const storageKey = "mln122-exam-v2";
 
 test("practice checks wrong/right choices, keeps feedback on navigation, and shuffles", async ({
   page,
@@ -27,9 +27,7 @@ test("practice checks wrong/right choices, keeps feedback on navigation, and shu
     .getByRole("button", { name: "Kiểm tra đáp án", exact: true })
     .click();
   await expect(page.getByRole("status")).toContainText("Chưa chính xác");
-  await expect(page.getByRole("status")).toContainText(
-    "Đáp án trong PDF gốc: D",
-  );
+  await expect(page.getByRole("status")).toContainText("Đáp án đúng:");
   await page.getByRole("button", { name: "Làm lại", exact: true }).click();
   const retryOrder = await page.locator(".option-copy").allTextContents();
   expect(retryOrder).not.toEqual(initialOrder);
@@ -130,7 +128,7 @@ test("search finds source IDs, multiple answers require the full set, and empty 
     .getByRole("button", { name: "Kiểm tra đáp án", exact: true })
     .click();
   await expect(page.getByRole("status")).toContainText("Chính xác.");
-  await search.fill("526");
+  await search.fill(bank.at(-1).id);
   await expect(page.locator(".question-title")).toHaveText(
     bank.at(-1).question,
   );
@@ -153,6 +151,7 @@ test("exam samples 60 unique questions, persists choices/index/deadline, and gra
   await expect(page.getByRole("timer")).toContainText(/(50:00|49:5\d)/);
   await expect(page.locator(".question-grid button")).toHaveCount(60);
   await expect(page.locator(".answer-feedback")).toHaveCount(0);
+  await expect(page.locator(".explanation")).toHaveCount(0);
   const initial = await page.evaluate(
     (key) => JSON.parse(localStorage.getItem(key)),
     storageKey,
@@ -187,6 +186,9 @@ test("exam samples 60 unique questions, persists choices/index/deadline, and gra
     page.getByRole("region", { name: "Kết quả bài thi" }),
   ).toContainText("0.17");
   await expect(page.locator(".result-stats")).toContainText("59");
+  await expect(
+    page.getByRole("region", { name: "Giải thích đáp án" }),
+  ).toContainText(bank.find((q) => q.id === initial.ids[1]).explanation);
   await expect(page.locator(".question-card input").first()).toBeDisabled();
   await page.getByRole("button", { name: "Làm đề mới" }).click();
   await page.getByRole("button", { name: "Tạo đề mới", exact: true }).click();
@@ -270,7 +272,48 @@ test("layouts fit 320, 390, 768, 1024 and 1440px, and keyboard can reach choices
   await page.getByRole("radio", { name: /^A / }).focus();
   await page.keyboard.press("ArrowRight");
   await expect(page.getByRole("radio", { name: /^B / })).toBeChecked();
-  const pdf = await page.request.get("/source.pdf");
-  expect(pdf.status()).toBe(200);
-  expect(pdf.headers()["content-type"]).toContain("application/pdf");
+  await expect(page.locator('a[href*=".pdf"]')).toHaveCount(0);
+});
+
+test("standalone alternate questions reveal explanations without PDF references", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await expect(page.locator(".explanation")).toHaveCount(0);
+  const alternate = bank.find((q) => q.variantOf === "2");
+  await page.getByRole("searchbox").fill(alternate.id);
+  await expect(page.locator(".question-title")).toHaveText(alternate.question);
+  await page.locator('.question-card input[value="D"]').check();
+  await page
+    .getByRole("button", { name: "Kiểm tra đáp án", exact: true })
+    .click();
+  await expect(page.locator(".answer-feedback")).toContainText("Chính xác.");
+  await expect(
+    page.getByRole("region", { name: "Giải thích đáp án" }),
+  ).toContainText(alternate.explanation);
+  await expect(page.locator("body")).not.toContainText("Đáp án trong PDF");
+  await expect(page.locator("body")).not.toContainText("Kiểu hỏi khác");
+  await expect(page.locator('a[href*=".pdf"]')).toHaveCount(0);
+});
+
+test("unclear cards show a review note without falsely marking choices right or wrong", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await page.getByRole("searchbox").fill("52");
+  await expect(page.locator(".review-warning")).toBeVisible();
+  await page.locator('.question-card input[value="C"]').check();
+  await page
+    .getByRole("button", { name: "Kiểm tra đáp án", exact: true })
+    .click();
+  await expect(page.locator(".answer-feedback")).toContainText("cần làm rõ");
+  await expect(page.locator(".option.correct, .option.incorrect")).toHaveCount(
+    0,
+  );
+  await expect(
+    page.getByRole("region", { name: "Thống kê ôn tập" }),
+  ).toContainText("0%");
+  await expect(
+    page.getByRole("region", { name: "Giải thích đáp án" }),
+  ).toBeVisible();
 });

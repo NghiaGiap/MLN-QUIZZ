@@ -1,8 +1,8 @@
 # Kiểm chứng ngày 13/11/2026
 
 - Node.js 24.15.0, React 19.3.1, Vite 8.3.8, Microsoft Edge.
-- `npm test`: **11/11** bài kiểm tra logic và dữ liệu thành công, gồm xáo lựa chọn, giữ nhãn ABCDE và chấm theo đáp án gốc.
-- `npm run test:e2e`: **7/7** luồng trình duyệt thành công.
+- `npm test`: **15/15** bài kiểm tra logic và dữ liệu thành công, gồm giải thích, biến thể, lọc câu cần làm rõ, xáo lựa chọn và chấm theo định danh đáp án.
+- `npm run test:e2e`: **9/9** luồng trình duyệt thành công.
 - `npm run build`: thành công, không có cảnh báo kích thước bundle sau khi tách thư viện và dữ liệu câu hỏi.
 - Production preview trả HTTP 200; không có console error/warning trong lượt kiểm tra.
 - Giao diện được quan sát trên desktop, điện thoại và tablet; kiểm tra tự động không tràn ngang tại 320, 390, 768, 1024, 1440px.
@@ -12,10 +12,10 @@
 
 ## Phạm vi kiểm tra
 
-526 ID duy nhất; mỗi câu có lựa chọn không rỗng, chữ cái đáp án hợp lệ và trang nguồn. Tạo đề 60 câu không trùng, thời gian đúng 3.000 giây. Chấm sai/đúng/chưa chọn; câu nhiều đáp án yêu cầu tập lựa chọn chính xác. Kiểm tra tìm kiếm và trạng thái rỗng, xáo câu, làm lại, nộp có xác nhận, xem lại, tạo đề mới, giữ lựa chọn/vị trí/deadline sau reload, tự nộp khi hết giờ kể cả khi chuyển sang ôn tập, khôi phục đề đã hết hạn và bỏ qua dữ liệu lưu hỏng.
+555 ID duy nhất gồm 526 câu ban đầu và 29 biến thể; mỗi câu có lựa chọn không rỗng, khóa đáp án hợp lệ và giải thích ít nhất 100 ký tự. 540 câu đủ dữ kiện để tạo đề, 15 câu cần làm rõ được loại khỏi thi và không tô đúng/sai khi ôn. Tạo đề 60 câu không trùng, thời gian đúng 3.000 giây. Chấm một/nhiều đáp án, tìm kiếm, phục hồi thứ tự, làm lại, nộp, tạo đề mới, giữ trạng thái và deadline sau reload, tự nộp cả khi đổi chế độ, bỏ qua dữ liệu lưu hỏng.
 
-Sau cập nhật xáo đáp án: Làm lại đổi thứ tự nội dung nhưng giữ nhãn ABCDE, không thay dữ liệu nguồn; chấm đúng theo nội dung cho câu một/nhiều đáp án. Đề mới đổi thứ tự cả các câu trùng với đề trước. Reload và chuyển câu giữ thứ tự đã xáo, lựa chọn và deadline; dữ liệu thứ tự không hợp lệ bị từ chối, bài thi cũ không có thứ tự xáo vẫn tiếp tục được. Cụm “phương án trên” được đổi thành “phương án còn lại” khi hiển thị câu đã xáo.
+Làm lại đổi nội dung nhưng giữ nhãn ABCDE; chấm bằng định danh lựa chọn. Đề mới đổi thứ tự cả các câu trùng với đề trước. Reload giữ lựa chọn, thứ tự và deadline. Bộ nội dung mới dùng vùng lưu v2 để không chấm lại đề v1 theo khóa đáp án đã thay đổi. Cụm “phương án trên” được đổi thành “phương án còn lại” khi đã xáo.
 
-Nút Về thứ tự ban đầu: chỉ hiện khi đã đổi thứ tự câu; khôi phục thứ tự PDF, xóa từ khóa và về câu 1; giữ lựa chọn, kết quả chấm và thứ tự đáp án. Kiểm tra nút khi xáo ở cả 5 kích thước màn hình, không tràn ngang.
+Nút Về thứ tự ban đầu khôi phục bộ câu, xóa tìm kiếm và về câu 1; giữ lựa chọn, kết quả và thứ tự đáp án. Đã kiểm tra 5 kích thước, không tràn ngang. Đã quan sát phần giải thích trên desktop và mobile ở production preview; không có lỗi hoặc cảnh báo console.
 
-Đây là xác minh chức năng và độ đầy đủ trích xuất; không phải thẩm định kiến thức hoặc đáp án học thuật trong PDF. Những chỗ mơ hồ của nguồn được giữ nguyên như mô tả trong README.
+Build dữ liệu từ JSON có tính tái tạo: chạy lại cho kết quả giống nhau. Không có PDF trong public hoặc dist. Giải thích hiển thị sau kiểm tra và sau nộp thi; biến thể chấm độc lập, không lấy nguyên chữ cái câu cha. Đã đối chiếu những sửa khóa quan trọng và ghi lịch sử tại CONTENT_REVIEW.md cùng data/content-report.json. Các kiểm tra tự động xác nhận hành vi và cấu trúc dữ liệu, không chứng nhận độc lập tính đúng đắn học thuật của toàn bộ giải thích.

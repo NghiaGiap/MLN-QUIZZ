@@ -5,7 +5,7 @@ import {
   CheckCheck,
   RotateCcw,
   X,
-  ExternalLink,
+  Lightbulb,
 } from "lucide-react";
 import { displayOptions, isCorrect } from "../lib/quiz.js";
 
@@ -24,6 +24,7 @@ export default function QuestionCard({
 }) {
   const multiple = question.correct.length > 1;
   const correct = isCorrect(question, selected);
+  const needsReview = question.examEligible === false;
   const options = displayOptions(question, optionOrder);
   const correctLabels = options
     .filter((option) => question.correct.includes(option.key))
@@ -47,11 +48,18 @@ export default function QuestionCard({
             ? "Chọn tất cả phương án bạn cho là đúng."
             : "Chọn một phương án bạn cho là đúng."}
         </p>
+        {needsReview && (
+          <p className="review-warning">
+            Câu cần làm rõ · Dùng để thảo luận và xem lưu ý, không tính vào đề
+            thi thử.
+          </p>
+        )}
         <div className="options">
           {options.map((option) => {
             const chosen = selected.includes(option.key);
-            const right = revealed && question.correct.includes(option.key);
-            const wrong = revealed && chosen && !right;
+            const right =
+              revealed && !needsReview && question.correct.includes(option.key);
+            const wrong = revealed && !needsReview && chosen && !right;
             return (
               <label
                 key={option.key}
@@ -84,26 +92,43 @@ export default function QuestionCard({
       </fieldset>
       {revealed && (
         <div
-          className={`answer-feedback ${correct ? "positive" : "negative"}`}
+          className={`answer-feedback ${needsReview ? "review" : correct ? "positive" : "negative"}`}
           role="status"
         >
-          {correct ? <CheckCheck size={22} /> : <X size={22} />}
+          {needsReview ? (
+            <Lightbulb size={22} />
+          ) : correct ? (
+            <CheckCheck size={22} />
+          ) : (
+            <X size={22} />
+          )}
           <div>
             <strong>
-              {correct
-                ? "Chính xác. Bạn đã nắm được câu này!"
-                : selected.length
-                  ? "Chưa chính xác. Cùng ghi nhớ lại nhé."
-                  : "Bạn chưa trả lời câu này."}
+              {needsReview
+                ? "Câu này cần làm rõ trước khi chấm đáp án."
+                : correct
+                  ? "Chính xác. Bạn đã nắm được câu này!"
+                  : selected.length
+                    ? "Chưa chính xác. Cùng ghi nhớ lại nhé."
+                    : "Bạn chưa trả lời câu này."}
             </strong>
-            <p>
-              Đáp án đúng: <b>{correctLabels.join(", ")}</b>
-              {" · Đáp án trong PDF gốc: "}
-              {question.correct.join(", ")}
-              {question.note ? ` · Ghi chú: ${question.note}` : ""}
-            </p>
+            {!needsReview && (
+              <p>
+                Đáp án đúng: <b>{correctLabels.join(", ")}</b>
+              </p>
+            )}
+            {needsReview && <p>{question.reviewNote}</p>}
           </div>
         </div>
+      )}
+      {revealed && (
+        <section className="explanation" aria-label="Giải thích đáp án">
+          <h3>
+            <Lightbulb size={18} />{" "}
+            {needsReview ? "Điểm cần lưu ý" : "Vì sao đáp án này đúng?"}
+          </h3>
+          <p>{question.explanation}</p>
+        </section>
       )}
       <div className="question-actions">
         <button
@@ -140,17 +165,8 @@ export default function QuestionCard({
       </div>
       <div className="source-line">
         <span>
-          Câu gốc #{question.id} <span>·</span> MLN122 — NHUNG HOÀNG
+          Mã câu #{question.id} <span>·</span> MLN122 — Kinh tế chính trị
         </span>
-        {(!exam || revealed) && (
-          <a
-            href={`/source.pdf#page=${question.page}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            PDF trang {question.page} <ExternalLink size={12} />
-          </a>
-        )}
       </div>
     </section>
   );

@@ -1,0 +1,207 @@
+[
+  {
+    "variantOf": "2",
+    "question": "Khi khái quát lịch sử phát triển sản xuất công nghiệp, C. Mác nêu ba giai đoạn theo trình tự nào?",
+    "choices": ["Hiệp tác giản đơn – lao động thủ công – lao động phức tạp", "Hiệp tác giản đơn – công trường thủ công – công nghiệp hóa", "Hiệp tác giản đơn – sản xuất thủ công – sản xuất hiện đại", "Hiệp tác giản đơn – công trường thủ công – đại công nghiệp"],
+    "correct": ["D"],
+    "explanation": "Hiệp tác giản đơn tập hợp người lao động; công trường thủ công phát triển phân công chi tiết; đại công nghiệp dựa trên hệ thống máy móc. Trình tự này mô tả biến đổi của tổ chức lao động và cơ sở kỹ thuật, không phải các mức độ phức tạp của lao động."
+  },
+  {
+    "variantOf": "16",
+    "question": "Cách mạng công nghiệp lần thứ hai diễn ra chủ yếu trong thời gian nào?",
+    "choices": ["Từ giữa thế kỷ XV đến giữa thế kỷ XIX", "Từ giữa thế kỷ XVI đến giữa thế kỷ XVII", "Từ giữa thế kỷ XVIII đến giữa thế kỷ XIX", "Từ nửa cuối thế kỷ XIX đến đầu thế kỷ XX"],
+    "correct": ["D"],
+    "explanation": "Giai đoạn điện khí hóa, động cơ đốt trong và sản xuất hàng loạt nổi bật từ cuối thế kỷ XIX sang đầu thế kỷ XX. Khoảng giữa thế kỷ XVIII đến giữa thế kỷ XIX thuộc cuộc cách mạng cơ khí hóa lần thứ nhất."
+  },
+  {
+    "variantOf": "26",
+    "question": "Xét về vị trí lịch sử, kinh tế thị trường có đặc điểm nào?",
+    "choices": ["Chỉ tồn tại khi chủ nghĩa tư bản ra đời", "Là trình độ phát triển cao của kinh tế hàng hóa, một thành tựu phát triển chung của nhân loại", "Chỉ xuất hiện do quyết định chủ quan trong thời kỳ quá độ", "Chỉ là sản phẩm riêng của chủ nghĩa tư bản"],
+    "correct": ["B"],
+    "explanation": "Kinh tế thị trường hình thành qua sự phát triển lâu dài của phân công và trao đổi hàng hóa. Chủ nghĩa tư bản làm nó phát triển mạnh, nhưng quan hệ thị trường không vì thế trở thành độc quyền lịch sử của một chế độ xã hội."
+  },
+  {
+    "variantOf": "43",
+    "question": "Xét về bản chất, lợi ích kinh tế phản ánh quan hệ nào giữa các chủ thể?",
+    "choices": ["Chỉ quan hệ giao tiếp đời thường", "Quan hệ sinh học không phụ thuộc lịch sử", "Quan hệ sản xuất và những quan hệ kinh tế về việc tạo ra, phân chia lợi ích vật chất", "Chỉ quan hệ quyền lực chính trị"],
+    "correct": ["C"],
+    "explanation": "Lợi ích kinh tế gắn với quyền sở hữu, vị trí và phần được hưởng của mỗi chủ thể trong hoạt động sản xuất. Nó biểu hiện quan hệ kinh tế vật chất, không thể thu hẹp thành giao tiếp hoặc quyền lực chính trị thuần túy."
+  },
+  {
+    "variantOf": "46",
+    "question": "Nguồn nào không thuộc các nguồn tích lũy ban đầu thường nêu trong con đường công nghiệp hóa tư bản cổ điển?",
+    "choices": ["Chiếm đoạt thuộc địa", "Khai thác lao động làm thuê", "Tước đoạt, làm phá sản người sản xuất nhỏ trong nông nghiệp", "Đi vay nhà nước như nguồn khái quát thay thế ba quá trình tích lũy trên"],
+    "correct": ["D"],
+    "explanation": "Tích lũy ban đầu được phân tích qua tập trung của cải và tách người sản xuất khỏi tư liệu sản xuất. Vay nhà nước có thể tồn tại trong lịch sử tài chính nhưng không thay cho ba quá trình nguồn gốc được liệt kê ở đây."
+  },
+  {
+    "variantOf": "60",
+    "question": "Hoạt động nào được coi là cơ bản và là cơ sở vật chất của đời sống xã hội?",
+    "choices": ["Hoạt động chính trị", "Hoạt động sản xuất của cải vật chất", "Hoạt động nghệ thuật và thể thao", "Hoạt động thực nghiệm khoa học"],
+    "correct": ["B"],
+    "explanation": "Xã hội phải có thức ăn, nơi ở và các điều kiện vật chất để duy trì con người trước khi phát triển những hoạt động khác. Sản xuất của cải vật chất tái tạo nền tảng ấy, dù chính trị, nghệ thuật và khoa học đều có vai trò quan trọng."
+  },
+  {
+    "variantOf": "68",
+    "question": "Nội dung nào diễn đạt mục tiêu trực tiếp của xuất khẩu tư bản hơn là mục tiêu khái quát về mở rộng cơ hội hội nhập?",
+    "choices": ["Tiếp cận công nghệ và nguồn vốn", "Học hỏi kinh nghiệm quản lý", "Mở rộng thị trường tiêu thụ sản phẩm có lợi thế", "Đầu tư vốn ra nước ngoài để thu giá trị thặng dư và nguồn lợi"],
+    "correct": ["D"],
+    "explanation": "Thu lợi từ vốn đầu tư ra nước ngoài là mục tiêu trực tiếp xác định xuất khẩu tư bản. Hội nhập kinh tế có phạm vi rộng hơn, gồm mở thị trường và tiếp cận nguồn lực; không nên khẳng định đầu tư ra ngoài không bao giờ có lợi cho hội nhập."
+  },
+  {
+    "variantOf": "70",
+    "question": "Hệ thống lý luận nào đầu tiên chuyển trọng tâm từ lưu thông sang nghiên cứu sản xuất, dù còn giới hạn chủ yếu ở nông nghiệp?",
+    "choices": ["Chủ nghĩa trọng thương", "Chủ nghĩa trọng nông", "Lý luận độc quyền nhà nước", "Lý luận kinh tế tri thức"],
+    "correct": ["B"],
+    "explanation": "Trọng nông coi nông nghiệp là nơi tạo sản phẩm ròng nên bước đầu nghiên cứu quan hệ sản xuất. Trọng thương có trước nhưng đặt trọng tâm vào tiền và thương mại; hai vai trò lịch sử không thể hoán đổi."
+  },
+  {
+    "variantOf": "72",
+    "question": "Trong các nguyên nhân kinh tế thường nêu về sự sụp đổ mô hình Xô viết, nguyên nhân nào được coi là quyết định nhất?",
+    "choices": ["Cơ chế kế hoạch hóa tập trung mệnh lệnh", "Tiến bộ kỹ thuật không đồng bộ", "Sản xuất không gắn với tiêu dùng", "Công nghiệp hóa nhanh"],
+    "correct": ["A"],
+    "examEligible": false,
+    "reviewNote": "Từ quyết định nhất đòi hỏi khung phân tích và tiêu chí cụ thể; không nên rút sự kiện lịch sử nhiều nguyên nhân về một lựa chọn chắc chắn.",
+    "explanation": "Những bất cập của cơ chế tập trung quan liêu, bao cấp là nguyên nhân kinh tế quan trọng. Tuy nhiên để gọi một nguyên nhân là quyết định nhất phải nêu cách tiếp cận; sự kiện còn liên quan sai lầm cải tổ, chính trị và các yếu tố khác."
+  },
+  {
+    "variantOf": "84",
+    "question": "Nhận xét nào không đúng với phương pháp sản xuất giá trị thặng dư tuyệt đối trong mô hình cơ bản?",
+    "choices": ["Được áp dụng phổ biến ở giai đoạn kỹ thuật còn lạc hậu", "Giá trị sức lao động được giả định không đổi", "Ngày lao động luôn giữ nguyên"],
+    "correct": ["C"],
+    "explanation": "Phương pháp tuyệt đối tăng thời gian lao động thặng dư bằng kéo dài ngày lao động khi các điều kiện khác giữ nguyên. Vì vậy giả định ngày lao động không đổi không mô tả đúng cơ chế kéo dài thời gian này."
+  },
+  {
+    "variantOf": "101",
+    "question": "Kinh tế chính trị cổ điển Anh hình thành từ cuối thế kỷ XVII, mở đầu với nhà kinh tế nào?",
+    "choices": ["David Ricardo", "Adam Smith", "William Petty", "Thomas Mun"],
+    "correct": ["C"],
+    "explanation": "Petty là đại diện mở đầu của kinh tế chính trị cổ điển Anh. Smith hệ thống hóa môn học vào thế kỷ XVIII và Ricardo phát triển về sau; Thomas Mun thuộc truyền thống trọng thương."
+  },
+  {
+    "variantOf": "126",
+    "question": "Tên nào không nằm trong bốn chức năng cơ bản thường nêu của kinh tế chính trị Mác – Lênin?",
+    "choices": ["Chức năng nhận thức", "Chức năng thực tiễn", "Chức năng phương pháp luận", "Chức năng khoa học như một chức năng thứ năm độc lập"],
+    "correct": ["D"],
+    "explanation": "Bốn chức năng được phân loại là nhận thức, thực tiễn, tư tưởng và phương pháp luận. Tính khoa học là yêu cầu của toàn bộ môn học, không được tính thêm thành một chức năng thứ năm trong phân loại này."
+  },
+  {
+    "variantOf": "151",
+    "question": "Đặc điểm nào sau đây không phải của kinh tế thị trường?",
+    "choices": ["Là kinh tế hàng hóa phát triển cao", "Cơ chế giá cả và cạnh tranh góp phần phân bổ nguồn lực", "Chỉ có thể phát triển mạnh trong xã hội phong kiến", "Phát triển đến trình độ cao trong chủ nghĩa tư bản"],
+    "correct": ["C"],
+    "explanation": "Thị trường phát triển trên cơ sở phân công và trao đổi, không bị giới hạn chỉ trong xã hội phong kiến. Kinh tế tư bản làm thị trường phát triển phổ biến và cao hơn, còn các mô hình khác vẫn có thể sử dụng cơ chế thị trường."
+  },
+  {
+    "variantOf": "175",
+    "question": "Theo cách phân kỳ của học phần, cách mạng công nghiệp lần thứ ba diễn ra trong thời gian nào?",
+    "choices": ["Từ giữa thế kỷ XV đến giữa thế kỷ XIX", "Từ giữa thế kỷ XVI đến giữa thế kỷ XVII", "Từ giữa thế kỷ XVIII đến giữa thế kỷ XIX", "Từ đầu những năm 1960 đến cuối thế kỷ XX"],
+    "correct": ["D"],
+    "explanation": "Cuộc cách mạng lần ba gắn với điện tử, máy tính và tự động hóa từ khoảng những năm 1960 theo khung phân kỳ này. Khoảng thế kỷ XVIII–XIX lại phù hợp với cơ khí hóa và hơi nước của lần thứ nhất."
+  },
+  {
+    "variantOf": "181",
+    "question": "Trong cách phân kỳ kinh tế chính trị, xuất khẩu hàng hóa là đặc điểm nổi bật của giai đoạn nào?",
+    "choices": ["Sản xuất hàng hóa giản đơn", "Mọi phương thức sản xuất không phân biệt giai đoạn", "Chủ nghĩa tư bản cạnh tranh tự do", "Chủ nghĩa tư bản độc quyền khi xuất khẩu tư bản là đặc điểm mới"],
+    "correct": ["C"],
+    "explanation": "Xuất khẩu hàng hóa được nhấn mạnh ở giai đoạn cạnh tranh tự do, còn xuất khẩu tư bản là đặc điểm nổi bật của giai đoạn độc quyền. Đây là phân biệt về vai trò nổi bật, không khẳng định hai hoạt động không thể cùng tồn tại."
+  },
+  {
+    "variantOf": "189",
+    "question": "Ngoài tính tự chủ của doanh nghiệp, điều kiện thể chế nào hỗ trợ thị trường phân bổ nguồn lực hiệu quả?",
+    "choices": ["Hệ thống pháp luật tương đối đầy đủ cùng quản lý vĩ mô của nhà nước", "Nhà nước thay mọi giao dịch tự nguyện bằng mệnh lệnh", "Chỉ quản lý đời sống văn hóa", "Chỉ mở rộng giáo dục mà không xây dựng quy tắc kinh tế"],
+    "correct": ["A"],
+    "explanation": "Thị trường cần quyền tài sản, hợp đồng và môi trường cạnh tranh được bảo đảm, cùng điều tiết vĩ mô khi cần. Quản lý nhà nước tạo khuôn khổ và sửa một số thất bại thị trường chứ không phải thay toàn bộ giao dịch bằng mệnh lệnh."
+  },
+  {
+    "variantOf": "209",
+    "question": "Tích lũy tư bản là gì?",
+    "choices": ["Tư bản hóa tư liệu tiêu dùng", "Tư bản hóa một phần giá trị thặng dư", "Tư bản hóa toàn bộ sức lao động", "Tư bản hóa mọi khoản giá trị sản xuất không phân biệt nguồn"],
+    "correct": ["B"],
+    "explanation": "Nhà tư bản dùng một phần giá trị thặng dư để mua thêm tư liệu sản xuất và sức lao động, biến nó thành vốn bổ sung. Đó là tích lũy; dùng phần thu nhập ấy cho tiêu dùng cá nhân chưa làm quy mô tư bản tăng."
+  },
+  {
+    "variantOf": "234",
+    "question": "Ba giai đoạn của một vòng tuần hoàn tư bản công nghiệp theo chức năng lần lượt là gì?",
+    "choices": ["Lưu thông mua đầu vào – sản xuất – lưu thông bán đầu ra", "Sản xuất – cất trữ – sản xuất", "Tiêu dùng cá nhân – sản xuất – tiêu dùng cá nhân", "Lưu thông – lưu thông – không cần sản xuất"],
+    "correct": ["A"],
+    "explanation": "Vốn tiền được dùng mua yếu tố đầu vào, đi vào sản xuất rồi trở thành hàng hóa đem bán lấy tiền lớn hơn. Hai khâu lưu thông thực hiện chuyển hình thái, còn khâu sản xuất là nơi tạo giá trị mới."
+  },
+  {
+    "variantOf": "265",
+    "question": "Ai là người đầu tiên dùng thuật ngữ kinh tế chính trị trong tên tác phẩm xuất bản năm 1615?",
+    "choices": ["François Quesnay", "Antoine de Montchrestien", "William Petty"],
+    "correct": ["B"],
+    "explanation": "Antoine de Montchrestien dùng thuật ngữ trong tác phẩm năm 1615. Quesnay gắn với trọng nông và Petty mở đầu cổ điển Anh, nên người đặt thuật ngữ không đồng thời là đại diện mở đầu hai trường phái đó."
+  },
+  {
+    "variantOf": "282",
+    "question": "Yếu tố nào là nguồn tạo giá trị hàng hóa theo lý luận giá trị lao động?",
+    "choices": ["Lao động trừu tượng của con người trong sản xuất hàng hóa", "Sự khan hiếm tự nhiên đứng riêng", "Việc tăng giá bán bằng mọi cách", "Mua đi bán lại mà không có hoạt động sản xuất mới"],
+    "correct": ["A"],
+    "explanation": "Lao động trừu tượng tạo giá trị mới, còn lưu thông thực hiện hoặc phân phối lại giá trị đã hình thành. Khan hiếm và tăng giá có thể đổi giá cả, nhưng không tự tạo thêm tổng giá trị lao động của xã hội."
+  },
+  {
+    "variantOf": "292",
+    "question": "Trong mô hình tiền vàng của kinh tế chính trị cổ điển, loại tiền nào thích hợp thực hiện chức năng cất trữ giá trị?",
+    "choices": ["Tiền giấy", "Tiền điện tử", "Tiền vàng", "Bitcoin"],
+    "correct": ["C"],
+    "explanation": "Trong mô hình lịch sử này, vàng tự có giá trị hàng hóa nên có thể rút khỏi lưu thông để giữ giá trị. Câu hỏi không phải đánh giá phương tiện tiết kiệm tốt nhất trong hệ thống tài chính hiện đại."
+  },
+  {
+    "variantOf": "315",
+    "question": "Khi có giá trị thặng dư dương, chi phí sản xuất tư bản chủ nghĩa so với toàn bộ hao phí lao động xã hội có quan hệ nào?",
+    "choices": ["Lớn hơn", "Nhỏ hơn", "Luôn bằng nhau", "Không có quan hệ vì không thể biểu hiện bằng giá trị"],
+    "correct": ["B"],
+    "explanation": "Nhà tư bản chỉ ứng phần k = c + v đã tiêu dùng, còn toàn bộ giá trị phản ánh c + v + m. Khi m > 0, phần chi phí nhà tư bản nhỏ hơn tổng giá trị một lượng bằng giá trị thặng dư."
+  },
+  {
+    "variantOf": "341",
+    "question": "Gọi W là giá trị hàng hóa, công thức cấu thành W là gì?",
+    "choices": ["W = c + v + m", "W = c + v", "W = v + m", "W = (c + v)/m"],
+    "correct": ["A"],
+    "explanation": "c là giá trị cũ của tư liệu sản xuất chuyển sang sản phẩm, còn v + m là giá trị mới do lao động sống tạo ra. Chỉ lấy c + v sẽ thành chi phí sản xuất; chỉ lấy v + m sẽ bỏ phần giá trị cũ."
+  },
+  {
+    "variantOf": "347",
+    "question": "Tư bản trong tuần hoàn công nghiệp lần lượt mang ba hình thái cơ bản nào?",
+    "choices": ["Tư bản tiền tệ, tư bản sản xuất, tư bản hàng hóa", "Tư bản cho vay, tư bản địa tô, tư bản tiền công", "Tư bản lưu thông, tư bản cố định, tư bản thương nghiệp", "Tư bản khả biến, tư bản bất biến, tư bản tiêu dùng"],
+    "correct": ["A"],
+    "explanation": "Ba hình thái gắn với chức năng mua yếu tố đầu vào, tổ chức sản xuất và bán hàng hóa. Cố định – lưu động hoặc bất biến – khả biến là những cách chia bộ phận vốn, không phải ba hình thái kế tiếp trong vòng tuần hoàn."
+  },
+  {
+    "variantOf": "354",
+    "question": "Phát biểu nào mô tả đúng hàng hóa?",
+    "choices": ["Mọi vật đáp ứng nhu cầu đều là hàng hóa dù không được sản xuất để trao đổi", "Sản phẩm lao động có thể đáp ứng nhu cầu và được sản xuất để trao đổi, mua bán", "Chỉ vật có công dụng rất cao mới là hàng hóa", "Chỉ vật luôn khan hiếm mới là hàng hóa"],
+    "correct": ["B"],
+    "explanation": "Hàng hóa phải kết hợp nguồn gốc từ lao động, khả năng đáp ứng nhu cầu và mục đích trao đổi. Mức công dụng cao hoặc tình trạng khan hiếm không thay thế được ba dấu hiệu này."
+  },
+  {
+    "variantOf": "362",
+    "question": "Xuất khẩu tư bản nhà nước thường có thể hướng vào ngành nào để tạo điều kiện cho đầu tư tư nhân?",
+    "choices": ["Kết cấu hạ tầng cần vốn lớn và thời gian thu hồi dài", "Chỉ các ngành quay vòng rất nhanh", "Chỉ các hoạt động quảng cáo không cần hạ tầng"],
+    "correct": ["A"],
+    "explanation": "Vốn nhà nước có khả năng tham gia công trình lớn và chấp nhận thời gian thu hồi dài để xây dựng điều kiện chung. Hạ tầng được cải thiện có thể tạo môi trường hoạt động thuận lợi cho các nhà đầu tư tư nhân về sau."
+  },
+  {
+    "variantOf": "390",
+    "question": "Mô hình kinh tế thị trường định hướng xã hội chủ nghĩa được chính thức xác định tại Đại hội nào của Đảng?",
+    "choices": ["Đại hội VI", "Đại hội VIII", "Đại hội IX", "Đại hội X"],
+    "correct": ["C"],
+    "explanation": "Mốc chính thức xác định mô hình là Đại hội IX năm 2001. Đại hội VI mở đầu đường lối đổi mới; các bước sau tiếp tục bổ sung nhận thức, nên không thể hoán đổi hai sự kiện."
+  },
+  {
+    "variantOf": "412",
+    "question": "Dấu hiệu nào phân biệt cách mạng công nghiệp lần thứ ba với những lần trước?",
+    "choices": ["Máy móc ra đời nhưng chỉ dùng lao động thủ công", "Có công nghệ thông tin nhưng chỉ kéo dài thời gian lao động", "Công nghệ thông tin và điện tử thúc đẩy tự động hóa sản xuất", "Chỉ tăng năng suất bằng lao động chân tay"],
+    "correct": ["C"],
+    "explanation": "Công nghệ thông tin và điện tử làm thay đổi cách điều khiển, tính toán và tự động hóa. Chỉ kéo dài thời gian hoặc dùng lao động chân tay không thể hiện bước chuyển về chất của nền kỹ thuật sản xuất."
+  },
+  {
+    "variantOf": "441",
+    "question": "Trong mô hình cung cầu của bài học, nếu cung lớn hơn cầu và các điều kiện khác không đổi, giá cả có xu hướng thế nào?",
+    "choices": ["Cao hơn giá trị do người mua cạnh tranh khan hiếm", "Thấp hơn giá trị do sức ép bán hàng dư cung", "Chắc chắn luôn bằng giá trị trong từng giao dịch", "Giá trị lao động của hàng hóa tự biến mất"],
+    "correct": ["B"],
+    "explanation": "Dư cung làm người bán cạnh tranh để tiêu thụ hàng, tạo sức ép hạ giá. Giá bán giảm không có nghĩa lao động đã kết tinh trong hàng hóa tự biến mất hoặc mọi giá luôn bằng giá trị."
+  }
+]

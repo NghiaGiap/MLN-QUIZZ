@@ -16,9 +16,9 @@ const bank = JSON.parse(
   readFileSync(new URL("../src/data/questions.json", import.meta.url)),
 );
 
-test("imports all 526 source cards with valid, nonempty options and keys", () => {
-  assert.equal(bank.length, 526);
-  assert.equal(new Set(bank.map((q) => q.id)).size, 526);
+test("imports all 555 explained questions with valid, nonempty options and keys", () => {
+  assert.equal(bank.length, 555);
+  assert.equal(new Set(bank.map((q) => q.id)).size, 555);
   for (const q of bank) {
     assert.ok(q.question.trim(), `Question ${q.id}`);
     assert.ok(q.options.length >= 2, `Options ${q.id}`);
@@ -29,7 +29,7 @@ test("imports all 526 source cards with valid, nonempty options and keys", () =>
       `Key ${q.id}`,
     );
     assert.ok(q.options.every((o) => o.text.trim()));
-    assert.ok(q.page >= 1 && q.page <= 147);
+    assert.ok(q.explanation.length >= 100);
   }
 });
 
@@ -106,7 +106,7 @@ test("shuffled all-of-the-above wording stays meaningful; source text is preserv
 });
 
 test("a new exam reshuffles repeated questions compared with the previous exam", () => {
-  const subset = bank.slice(0, 60);
+  const subset = bank.filter((q) => q.examEligible !== false).slice(0, 60);
   const previous = createExam(subset, 1000);
   const next = createExam(subset, 2000, previous.optionOrders);
   for (const id of next.ids)

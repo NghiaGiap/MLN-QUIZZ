@@ -36,6 +36,7 @@ const normalize = (text) =>
     .replace(/đ/g, "d")
     .toLowerCase();
 const byId = Object.fromEntries(bank.map((q) => [q.id, q]));
+const eligibleCount = bank.filter((q) => q.examEligible !== false).length;
 
 export default function App() {
   const examState = useExam();
@@ -85,8 +86,12 @@ export default function App() {
   const currentAnswers = inExam ? (exam?.answers ?? {}) : answers;
   const revealed = inExam ? submitted : !!checked[question?.id];
   const learned = Object.keys(checked).length;
+  const learnedGradable = bank.filter(
+    (q) => checked[q.id] && q.examEligible !== false,
+  ).length;
   const learnedRight = bank.filter(
-    (q) => checked[q.id] && isCorrect(q, answers[q.id]),
+    (q) =>
+      checked[q.id] && q.examEligible !== false && isCorrect(q, answers[q.id]),
   ).length;
   const answeredCount = examQuestions.filter(
     (q) => exam?.answers[q.id]?.length,
@@ -183,7 +188,7 @@ export default function App() {
             Mác – Lênin
           </span>
           <div className="course-count">
-            526 câu hỏi <span>·</span> 147 trang
+            {bank.length} câu hỏi <span>·</span> Có giải thích
           </div>
         </div>
         <div className="sidebar-bottom">
@@ -193,8 +198,8 @@ export default function App() {
             <br />
             <strong>Hiểu sâu hơn.</strong>
           </p>
-          <a href="/source.pdf" target="_blank" rel="noreferrer">
-            Mở tài liệu gốc <ArrowUpRight size={14} />
+          <a href="#main-content">
+            Học để hiểu sâu hơn <ArrowUpRight size={14} />
           </a>
         </div>
       </aside>
@@ -242,7 +247,7 @@ export default function App() {
                   <div>
                     <span>Bộ câu hỏi</span>
                     <strong>
-                      526 <small>câu</small>
+                      {bank.length} <small>câu</small>
                     </strong>
                   </div>
                 </div>
@@ -253,7 +258,7 @@ export default function App() {
                   <div>
                     <span>Đã kiểm tra</span>
                     <strong>
-                      {learned} <small>/ 526</small>
+                      {learned} <small>/ {bank.length}</small>
                     </strong>
                   </div>
                 </div>
@@ -264,7 +269,9 @@ export default function App() {
                   <div>
                     <span>Độ chính xác</span>
                     <strong>
-                      {learned ? Math.round((learnedRight / learned) * 100) : 0}
+                      {learnedGradable
+                        ? Math.round((learnedRight / learnedGradable) * 100)
+                        : 0}
                       <small>%</small>
                     </strong>
                   </div>
@@ -315,7 +322,7 @@ export default function App() {
                         setIndex(0);
                         setSearch("");
                         setNotice(
-                          "Đã trở về thứ tự câu hỏi trong PDF. Lựa chọn và kết quả đã làm vẫn được giữ.",
+                          "Đã trở về thứ tự bộ câu hỏi. Lựa chọn và kết quả đã làm vẫn được giữ.",
                         );
                       }}
                     >
@@ -331,7 +338,13 @@ export default function App() {
               )}
             </>
           )}
-          {inExam && !exam && <ExamSetup onStart={startExam} />}
+          {inExam && !exam && (
+            <ExamSetup
+              onStart={startExam}
+              questionCount={eligibleCount}
+              reviewCount={bank.length - eligibleCount}
+            />
+          )}
           {inExam && exam && !submitted && (
             <div className="exam-bar">
               <div>
@@ -464,7 +477,9 @@ export default function App() {
             <section className="empty-state">
               <Search size={28} />
               <h2>Chưa tìm thấy câu phù hợp</h2>
-              <p>Thử từ khóa ngắn hơn hoặc nhập số câu từ 1 đến 526.</p>
+              <p>
+                Thử từ khóa ngắn hơn hoặc nhập số câu từ 1 đến {bank.length}.
+              </p>
               <button
                 className="button secondary"
                 onClick={() => setSearch("")}
@@ -479,7 +494,7 @@ export default function App() {
               cho bạn.
             </span>
             <span>
-              <ShieldCheck size={14} /> Nội dung & đáp án theo PDF gốc
+              <ShieldCheck size={14} /> Học đáp án, hiểu cả lý do
             </span>
           </footer>
         </main>

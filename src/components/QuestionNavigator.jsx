@@ -38,20 +38,24 @@ export default function QuestionNavigator({
           const position = start + offset;
           const revealed = submitted || (!exam && checked[q.id]);
           const state = revealed
-            ? isCorrect(q, answers[q.id])
-              ? "right"
-              : answers[q.id]?.length
-                ? "wrong"
-                : ""
+            ? q.examEligible === false
+              ? "review"
+              : isCorrect(q, answers[q.id])
+                ? "right"
+                : answers[q.id]?.length
+                  ? "wrong"
+                  : ""
             : answers[q.id]?.length
               ? "answered"
               : "";
           const label = revealed
-            ? isCorrect(q, answers[q.id])
-              ? "đúng"
-              : answers[q.id]?.length
-                ? "sai"
-                : "chưa trả lời"
+            ? q.examEligible === false
+              ? "cần làm rõ"
+              : isCorrect(q, answers[q.id])
+                ? "đúng"
+                : answers[q.id]?.length
+                  ? "sai"
+                  : "chưa trả lời"
             : answers[q.id]?.length
               ? "đã chọn"
               : "chưa trả lời";

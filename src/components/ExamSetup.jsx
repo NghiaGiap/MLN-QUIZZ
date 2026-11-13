@@ -6,7 +6,7 @@ import {
   Shuffle,
 } from "lucide-react";
 
-export default function ExamSetup({ onStart }) {
+export default function ExamSetup({ onStart, questionCount, reviewCount }) {
   return (
     <section className="exam-setup">
       <div className="setup-copy">
@@ -42,7 +42,10 @@ export default function ExamSetup({ onStart }) {
           <Shuffle />
           <section>
             <h3>Mỗi lần là một đề khác</h3>
-            <p>60 câu không trùng, lấy từ toàn bộ 526 câu trong tài liệu.</p>
+            <p>
+              60 câu không trùng, lấy từ {questionCount} câu đủ dữ kiện.{" "}
+              {reviewCount} câu cần làm rõ vẫn có thể đọc ở phần ôn tập.
+            </p>
           </section>
         </div>
         <div>
