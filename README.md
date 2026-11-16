@@ -1,13 +1,13 @@
 # Ôn. — Phòng học MLN122
 
-Web React thuần frontend với **555 câu có giải thích**, gồm 526 câu ban đầu và 29 câu độc lập tách từ ghi chú. Dự án hiện nằm trong thư mục **MLN122**. Web chạy bằng dữ liệu JSON đã biên soạn; không cần đọc PDF, gọi AI hay kết nối dịch vụ bên ngoài khi sử dụng.
+Web React thuần frontend với **555 câu có giải thích**, gồm 526 câu ban đầu và 29 câu độc lập tách từ ghi chú. Dự án dùng cho học phần **MLN122**. Web chạy bằng dữ liệu JSON đã biên soạn; không cần đọc PDF, gọi AI hay kết nối dịch vụ bên ngoài khi sử dụng.
 
 ## Chạy trên Windows
 
 Máy đã có sẵn dependencies. Mở terminal và chạy:
 
 ```powershell
-Set-Location 'D:\FPT_University_Study\FPT_FALL2026\MLN122'
+Set-Location 'D:\FPT_University_Study\FPT_FALL2026\MLN122-QUIZZ\MLN-QUIZZ'
 npm.cmd run dev
 ```
 
@@ -19,14 +19,14 @@ Nếu chuyển dự án sang máy khác, cài Node.js 22.12 trở lên và chạ
 
 - **Ôn tập:** chọn một hoặc nhiều phương án rồi nhấn **Kiểm tra đáp án**. Web hiển thị đáp án theo nhãn hiện tại và đoạn **Vì sao đáp án này đúng?**. **Làm lại** xóa lựa chọn của câu đó và xáo lại nội dung đáp án; nhãn luôn theo A, B, C, D (hoặc E).
 - **Điều hướng:** dùng Câu trước/Câu tiếp, bản đồ câu hỏi hoặc tìm kiếm. Nhập số từ 1 đến 555 để đến câu tương ứng; cũng có thể tìm bằng từ khóa không dấu. Các câu 527–555 là những câu độc lập tách từ ghi chú, có lựa chọn và đáp án riêng.
-- **Xáo câu hỏi:** đổi thứ tự ôn tập, vẫn giữ lựa chọn, thứ tự đáp án và kết quả trong phiên hiện tại. Phiên ôn tập mới xáo đáp án của toàn bộ câu hỏi.
+- **Xáo câu hỏi:** đổi thứ tự ôn tập, vẫn giữ lựa chọn, thứ tự đáp án và kết quả, kể cả sau khi tải lại hoặc mở lại web. Khi chưa có tiến độ hợp lệ, web mới khởi tạo thứ tự đáp án ngẫu nhiên cho toàn bộ câu; nút Làm lại vẫn xáo lại đáp án của câu đó.
 - **Về thứ tự ban đầu:** xuất hiện cạnh nút xáo khi thứ tự câu đã thay đổi. Khôi phục thứ tự bộ câu hỏi, xóa từ khóa và về câu 1; vẫn giữ lựa chọn, kết quả và thứ tự đáp án của từng câu.
 - **Thi thử:** tạo đề gồm 60 câu ngẫu nhiên không trùng từ **toàn bộ 555 câu**, làm trong 50 phút. Mỗi đề mới xáo nội dung đáp án, giữ nhãn A–B–C–D–E. Quay lại câu hoặc tải lại trang giữ nguyên thứ tự, lựa chọn và hạn giờ. Đáp án và giải thích chỉ hiện sau khi nộp hoặc hết giờ.
 - **Nộp bài:** hiển thị xác nhận, điểm thang 10, số câu đúng/sai/chưa trả lời và đáp án từng câu. Mỗi câu đúng có trọng số bằng nhau; câu nhiều đáp án chỉ đúng khi chọn đủ và không chọn thừa.
 - **Hết giờ:** tự động nộp, kể cả khi đang ở chế độ ôn tập. Khi quay lại tab hoặc tải lại trang, thời gian được tính từ thời điểm hết hạn cố định.
-- **Khôi phục:** bài thi, lựa chọn, vị trí câu và kết quả được lưu trong localStorage trên cùng trình duyệt và địa chỉ truy cập. Đề mới thay bài trước. Tiến độ ôn tập tồn tại trong phiên trang hiện tại.
+- **Khôi phục:** tiến độ ôn tập tự động lưu vào localStorage riêng với bài thi: câu đang xem, thứ tự câu hỏi và đáp án, lựa chọn, kết quả đã kiểm tra và từ khóa tìm kiếm. F5, đóng tab hoặc đóng rồi mở lại trình duyệt trên cùng địa chỉ sẽ tiếp tục phần đang học. Nếu còn bài thi chưa nộp, web ưu tiên mở bài thi; chuyển sang Ôn tập để tiếp tục câu đã lưu. Bài thi vẫn giữ hạn giờ tuyệt đối và không được cộng thêm thời gian khi đóng web. Đề mới chỉ thay bài thi trước, không xóa tiến độ ôn tập.
 
-Không cần tài khoản, API key, cơ sở dữ liệu hoặc backend ứng dụng. Dữ liệu không gửi đến dịch vụ bên ngoài. Nên làm bài trong một tab; đổi trình duyệt, xóa dữ liệu trình duyệt hoặc đổi cổng/địa chỉ sẽ dùng vùng lưu khác. Nếu trình duyệt chặn lưu, web hiện cảnh báo.
+Không cần tài khoản, API key, cơ sở dữ liệu hoặc backend ứng dụng. Dữ liệu không gửi đến dịch vụ bên ngoài. Nên làm bài trong một tab; đổi trình duyệt, xóa dữ liệu trình duyệt hoặc đổi cổng/địa chỉ sẽ dùng vùng lưu khác. Nếu trình duyệt chặn lưu hoặc hết dung lượng, web hiện cảnh báo và vẫn cho học trong trang đang mở. Tiến độ không đồng bộ giữa các thiết bị; xóa dữ liệu trang hoặc đóng phiên duyệt riêng tư có thể làm mất bản lưu. Bản lưu ôn tập không hợp lệ hoặc không còn khớp câu hỏi/đáp án sẽ được bỏ qua; chỉ sửa đoạn giải thích không làm mất tiến độ.
 
 Chấm điểm dựa trên định danh lựa chọn, không dựa vào chữ cái hiển thị sau xáo. Cụm “phương án trên”/“đáp án trên” được hiển thị thành “phương án còn lại”/“đáp án còn lại” khi đã xáo. Không còn chữ cái đáp án PDF hoặc liên kết mở PDF trong giao diện.
 
@@ -60,8 +60,8 @@ npm.cmd run build
 npm.cmd run preview
 ```
 
-- Node test runner: 16 kiểm tra dữ liệu, giải thích, tách biến thể, khôi phục 15 câu theo đáp án học phần và cơ chế lọc dữ liệu giả lập, lấy mẫu, xáo đáp án, chấm điểm, thời gian và khôi phục.
-- Playwright: 9 luồng trình duyệt với Microsoft Edge, gồm ôn tập, tìm kiếm, phục hồi thứ tự, thi/nộp/tạo đề mới, tải lại, hết giờ, giải thích, chấm đủ 15 câu được đưa lại vào bộ và responsive 320/390/768/1024/1440px. Cần cài Microsoft Edge; đổi `channel` trong `playwright.config.js` nếu dùng Chromium khác.
+- Node test runner: 19 kiểm tra dữ liệu, giải thích, tách biến thể, khôi phục 15 câu theo đáp án học phần và cơ chế lọc dữ liệu giả lập, lấy mẫu, xáo đáp án, chấm điểm, thời gian và khôi phục.
+- Playwright: 11 luồng trình duyệt với Microsoft Edge, gồm lưu/khôi phục tiến độ ôn tập sau F5 và mở lại tab, xử lý dữ liệu lưu hỏng và chặn lưu, tìm kiếm, phục hồi thứ tự, thi/nộp/tạo đề mới, tải lại, hết giờ, giải thích, chấm đủ 15 câu được đưa lại vào bộ và responsive 320/390/768/1024/1440px. Cần cài Microsoft Edge; đổi `channel` trong `playwright.config.js` nếu dùng Chromium khác.
 - `dist/` là bản tĩnh sau build. Dùng `npm.cmd run preview` để xem; không mở bằng cách nhấp đúp `dist/index.html`.
 - Định dạng code: `npx prettier --write src tests e2e *.js package.json`.
 
@@ -72,6 +72,7 @@ src/App.jsx               Điều phối chế độ học và thi
 src/useExam.js            Lưu bài, đồng hồ, khóa bài và tự nộp
 src/components/           Câu hỏi, bản đồ, thiết lập thi, kết quả, hộp xác nhận
 src/lib/quiz.js           Nghiệp vụ xáo câu, tạo đề, chấm và khôi phục
+src/lib/study.js          Tạo và kiểm tra bản lưu tiến độ ôn tập
 src/data/questions.json   555 câu có giải thích, dùng trực tiếp khi chạy
 src/styles.css            Giao diện responsive
 data/explanations/        Giải thích biên soạn cho 526 câu ban đầu

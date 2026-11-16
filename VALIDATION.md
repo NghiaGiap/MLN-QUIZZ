@@ -1,8 +1,8 @@
-# Kiểm chứng ngày 13/11/2026
+# Kiểm chứng ngày 16/11/2026
 
 - Node.js 24.15.0, React 19.3.1, Vite 8.3.8, Microsoft Edge.
-- `npm test`: **16/16** bài kiểm tra logic và dữ liệu thành công, gồm giải thích, biến thể, chấm đủ 15 câu được đưa lại vào thi và cơ chế lọc dữ liệu giả lập, xáo lựa chọn và chấm theo định danh đáp án.
-- `npm run test:e2e`: **9/9** luồng trình duyệt thành công.
+- `npm test`: **19/19** bài kiểm tra logic và dữ liệu thành công, gồm giải thích, biến thể, chấm đủ 15 câu được đưa lại vào thi và cơ chế lọc dữ liệu giả lập, xáo lựa chọn và chấm theo định danh đáp án.
+- `npm run test:e2e`: **11/11** luồng trình duyệt thành công.
 - `npm run build`: thành công, không có cảnh báo kích thước bundle sau khi tách thư viện và dữ liệu câu hỏi.
 - Production preview trả HTTP 200; không có console error/warning trong lượt kiểm tra.
 - Giao diện được quan sát trên desktop, điện thoại và tablet; kiểm tra tự động không tràn ngang tại 320, 390, 768, 1024, 1440px.
@@ -19,3 +19,11 @@ Làm lại đổi nội dung nhưng giữ nhãn ABCDE; chấm bằng định dan
 Nút Về thứ tự ban đầu khôi phục bộ câu, xóa tìm kiếm và về câu 1; giữ lựa chọn, kết quả và thứ tự đáp án. Đã kiểm tra 5 kích thước, không tràn ngang. Đã quan sát phần giải thích trên desktop và mobile ở production preview; không có lỗi hoặc cảnh báo console.
 
 Build dữ liệu từ JSON có tính tái tạo: chạy lại cho kết quả giống nhau. Không có PDF trong public hoặc dist. Luồng trình duyệt chọn và kiểm tra đáp án đúng cho cả 15 câu, xác nhận tô đúng, hiện giải thích, tính độ chính xác 100%, thử lại đáp án sai và hiển thị bộ 555 câu ở thiết lập thi. Giải thích hiển thị sau kiểm tra và sau nộp thi; biến thể chấm độc lập, không lấy nguyên chữ cái câu cha. Đã đối chiếu những sửa khóa quan trọng và ghi lịch sử tại CONTENT_REVIEW.md cùng data/content-report.json. Các kiểm tra tự động xác nhận hành vi và cấu trúc dữ liệu, không chứng nhận độc lập tính đúng đắn học thuật của toàn bộ giải thích.
+
+## Lưu tiến độ ôn tập
+
+Tự động lưu bằng khóa `mln122-study-v1`, độc lập với bài thi v2. Đã tái hiện lỗi mất vị trí sau reload trước khi sửa, rồi kiểm tra khôi phục vị trí, thứ tự câu đã xáo, thứ tự lựa chọn, câu đang chọn dở, câu đã kiểm tra, giải thích, tìm kiếm và thao tác Làm lại qua reload/đóng và mở tab mới. Bản lưu hỏng, trùng ID, khóa lựa chọn sai, chỉ mục sai hoặc bộ nội dung thay đổi đều bị từ chối. Chỉ cập nhật giải thích vẫn giữ tiến độ. Mô phỏng chặn đọc/ghi localStorage xác nhận có cảnh báo và vẫn chọn/chấm đáp án được.
+
+Thử bỏ kiểm tra trùng trong thứ tự câu: kiểm thử phát hiện lỗi như mong đợi; đã khôi phục code và chạy lại 3 kiểm thử session thành công. Bản production preview đã được kiểm tra trực tiếp: chọn đúng câu 1, chuyển câu 2 rồi reload vẫn ở câu 2 và giữ kết quả câu 1, không có console error/warning. Toàn bộ 11 luồng trình duyệt, gồm thi thử và deadline, đều đạt.
+
+Chưa kiểm tra việc tắt hẳn tiến trình trình duyệt rồi khởi động lại với hồ sơ người dùng thực tế; kiểm thử đóng/mở tab dùng cùng browser context. Không có đồng bộ đa thiết bị hoặc giữa các tab đang mở.

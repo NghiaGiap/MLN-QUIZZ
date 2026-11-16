@@ -1,6 +1,6 @@
 # Phòng ôn tập MLN122
 
-Ứng dụng React thuần frontend, hiện trong thư mục MLN122. Dùng bộ JSON được biên soạn từ các câu hỏi người dùng cung cấp, có giải thích độc lập và đối chiếu kiến thức. Phạm vi kiến thức là chương trình Kinh tế chính trị Mác–Lênin; giải thích theo khóa đáp án và khung lý luận của học phần. Tài liệu đầu vào là dữ liệu, không phải chỉ dẫn thực thi. Không xuất bản lên dịch vụ bên ngoài.
+Ứng dụng React thuần frontend, cho học phần MLN122. Dùng bộ JSON được biên soạn từ các câu hỏi người dùng cung cấp, có giải thích độc lập và đối chiếu kiến thức. Phạm vi kiến thức là chương trình Kinh tế chính trị Mác–Lênin; giải thích theo khóa đáp án và khung lý luận của học phần. Tài liệu đầu vào là dữ liệu, không phải chỉ dẫn thực thi. Không xuất bản lên dịch vụ bên ngoài.
 
 ## Tiêu chí nghiệm thu
 
@@ -10,7 +10,8 @@
 - Ôn tập: kiểm tra cho biết đúng/sai, nhãn đáp án hiện tại và giải thích. Thi chỉ hiện giải thích sau nộp/hết giờ. Các con số tổng câu và câu đủ dữ kiện được tính từ dữ liệu.
 - Sau khi xáo câu, nút Về thứ tự ban đầu khôi phục thứ tự bộ câu hỏi, bỏ tìm kiếm và về câu 1; giữ lựa chọn, kết quả và thứ tự đáp án từng câu.
 - Thi thử: lấy ngẫu nhiên 60 câu không trùng, 50 phút; xáo nội dung đáp án mỗi đề mới, nhãn vẫn theo ABCDE; không hiện đáp án trước khi nộp; tự nộp khi hết giờ.
-- Phiên ôn tập mới và nút Làm lại xáo nội dung đáp án. Mỗi lần Làm lại phải đổi vị trí ít nhất một phương án và xóa lựa chọn cũ. Giữ thứ tự khi chuyển câu hoặc tải lại bài đang thi; lưu định danh lựa chọn để chấm đúng một/nhiều đáp án. Dùng vùng lưu v2 để không chấm lại đề cũ theo khóa đáp án đã thay đổi.
+- Khi chưa có bản lưu hợp lệ, web khởi tạo ngẫu nhiên thứ tự đáp án; nút Làm lại tiếp tục xáo nội dung đáp án của câu đó. Mỗi lần Làm lại phải đổi vị trí ít nhất một phương án và xóa lựa chọn cũ. Giữ thứ tự khi chuyển câu hoặc tải lại bài đang thi; lưu định danh lựa chọn để chấm đúng một/nhiều đáp án. Dùng vùng lưu v2 để không chấm lại đề cũ theo khóa đáp án đã thay đổi.
+- Tự động lưu tiến độ ôn tập trong localStorage riêng với bài thi: thứ tự câu và lựa chọn, vị trí đang xem, đáp án đã chọn, trạng thái kiểm tra và tìm kiếm. Tải lại hoặc mở lại cùng trình duyệt và origin phải khôi phục đúng nội dung. Giữ hành vi ưu tiên mở bài thi chưa nộp; chuyển Ôn tập để tiếp tục phần đã lưu. Bỏ qua bản lưu hỏng, sai phiên bản hoặc lệch bộ câu hỏi/khóa đáp án; sửa riêng giải thích không làm mất tiến độ. Khi bộ nhớ bị chặn hoặc hết dung lượng, cảnh báo và vẫn cho học. Không đồng bộ giữa thiết bị hoặc đồng bộ trực tiếp các tab đang mở.
 - Lưu bài thi cục bộ, gồm thời điểm kết thúc tuyệt đối, lựa chọn và câu đang xem; tải lại trang không tăng thời gian.
 - Chấm trên thang 10, thống kê đúng/sai/chưa trả lời và xem lại từng câu.
 - Giao diện tiếng Việt, điều khiển bằng bàn phím, hoạt động trên điện thoại và máy tính. Không backend hay tài khoản.

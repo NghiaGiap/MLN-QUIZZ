@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   ArrowUpRight,
   BookOpen,
@@ -23,6 +23,11 @@ import {
   shuffleOptionKeys,
 } from "./lib/quiz.js";
 import useExam from "./useExam.js";
+import {
+  createStudySession,
+  restoreStudySession,
+  STUDY_STORAGE_KEY,
+} from "./lib/study.js";
 import QuestionCard from "./components/QuestionCard.jsx";
 import QuestionNavigator from "./components/QuestionNavigator.jsx";
 import ConfirmDialog from "./components/ConfirmDialog.jsx";
@@ -44,14 +49,42 @@ export default function App() {
   const [mode, setMode] = useState(() =>
     exam && exam.submittedAt === null ? "exam" : "study",
   );
-  const [order, setOrder] = useState(() => bank.map((q) => q.id));
-  const [index, setIndex] = useState(0);
-  const [answers, setAnswers] = useState({});
-  const [checked, setChecked] = useState({});
-  const [optionOrders, setOptionOrders] = useState(() =>
-    Object.fromEntries(bank.map((q) => [q.id, shuffleOptionKeys(q)])),
-  );
-  const [search, setSearch] = useState("");
+  const [initialStudy] = useState(() => {
+    try {
+      return (
+        restoreStudySession(localStorage.getItem(STUDY_STORAGE_KEY), bank) ??
+        createStudySession(bank)
+      );
+    } catch {
+      return createStudySession(bank);
+    }
+  });
+  const [order, setOrder] = useState(initialStudy.order);
+  const [index, setIndex] = useState(initialStudy.index);
+  const [answers, setAnswers] = useState(initialStudy.answers);
+  const [checked, setChecked] = useState(initialStudy.checked);
+  const [optionOrders, setOptionOrders] = useState(initialStudy.optionOrders);
+  const [search, setSearch] = useState(initialStudy.search);
+  const [studyStorageError, setStudyStorageError] = useState(false);
+  useEffect(() => {
+    try {
+      localStorage.setItem(
+        STUDY_STORAGE_KEY,
+        JSON.stringify({
+          ...initialStudy,
+          order,
+          index,
+          answers,
+          checked,
+          optionOrders,
+          search,
+        }),
+      );
+      setStudyStorageError(false);
+    } catch {
+      setStudyStorageError(true);
+    }
+  }, [initialStudy, order, index, answers, checked, optionOrders, search]);
   const [dialog, setDialog] = useState(null);
   const [notice, setNotice] = useState("");
   const isQuestionOrderShuffled = order.some(
@@ -231,10 +264,10 @@ export default function App() {
               <strong>MLN122</strong>
             </span>
           </div>
-          {storageError && (
+          {(storageError || studyStorageError) && (
             <p className="storage-warning" role="alert">
-              Trình duyệt không cho lưu bài. Hãy giữ trang này mở để tránh mất
-              tiến độ thi.
+              Không thể tự động lưu đầy đủ tiến độ. Hãy giữ trang này mở để
+              tránh mất bài đang làm.
             </p>
           )}
           {!inExam && (
@@ -285,7 +318,7 @@ export default function App() {
               <div className="study-toolbar">
                 <div>
                   <h2>Góc ôn tập</h2>
-                  <span>Chọn đáp án, kiểm tra và ghi nhớ.</span>
+                  <span>Tự động lưu tiến độ trên trình duyệt này.</span>
                 </div>
                 <div className="toolbar-controls">
                   <label className="search-box">

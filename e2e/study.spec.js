@@ -5,6 +5,95 @@ const bank = JSON.parse(
   readFileSync(new URL("../src/data/questions.json", import.meta.url)),
 );
 const storageKey = "mln122-exam-v2";
+const studyStorageKey = "mln122-study-v1";
+
+test("study restores the current card, shuffled order, answers and feedback after reload and reopening", async ({
+  page,
+  context,
+}) => {
+  await page.goto("/");
+  await page.locator('.question-card input[value="D"]').check();
+  await page
+    .getByRole("button", { name: "Kiểm tra đáp án", exact: true })
+    .click();
+  await page.getByRole("button", { name: "Câu tiếp", exact: true }).click();
+  const choices = await page.locator(".option-copy").allTextContents();
+  await page.locator('.question-card input[value="B"]').check();
+  await page.reload();
+  await expect(page.locator(".question-title")).toHaveText(bank[1].question);
+  await expect(page.locator('.question-card input[value="B"]')).toBeChecked();
+  expect(await page.locator(".option-copy").allTextContents()).toEqual(choices);
+  await page.getByRole("button", { name: "Câu trước", exact: true }).click();
+  await expect(page.locator(".answer-feedback")).toContainText("Chính xác.");
+  await expect(page.locator(".explanation")).toContainText(bank[0].explanation);
+  await page.getByRole("button", { name: "Xáo câu hỏi", exact: true }).click();
+  await page.getByRole("button", { name: "Câu tiếp", exact: true }).click();
+  const title = await page.locator(".question-title").innerText();
+  const saved = await page.evaluate(
+    (key) => JSON.parse(localStorage.getItem(key)),
+    studyStorageKey,
+  );
+  const reopened = await context.newPage();
+  await page.close();
+  await reopened.goto("/");
+  await expect(reopened.locator(".question-title")).toHaveText(title);
+  expect(
+    await reopened.evaluate(
+      (key) => JSON.parse(localStorage.getItem(key)).order,
+      studyStorageKey,
+    ),
+  ).toEqual(saved.order);
+  await expect(
+    reopened.getByRole("button", { name: "Về thứ tự ban đầu", exact: true }),
+  ).toBeVisible();
+  await reopened.getByRole("searchbox").fill("526");
+  await reopened.reload();
+  await expect(reopened.getByRole("searchbox")).toHaveValue("526");
+  await expect(reopened.locator(".question-title")).toHaveText(
+    bank.find((q) => q.id === "526").question,
+  );
+  await reopened
+    .getByRole("button", { name: "Về thứ tự ban đầu", exact: true })
+    .click();
+  await expect(reopened.locator(".answer-feedback")).toContainText(
+    "Chính xác.",
+  );
+  await reopened.getByRole("button", { name: "Làm lại", exact: true }).click();
+  const retryChoices = await reopened.locator(".option-copy").allTextContents();
+  await reopened.reload();
+  await expect(reopened.locator(".answer-feedback")).toHaveCount(0);
+  await expect(reopened.locator("input:checked")).toHaveCount(0);
+  expect(await reopened.locator(".option-copy").allTextContents()).toEqual(
+    retryChoices,
+  );
+});
+
+test("invalid saved study data is ignored, and blocked storage leaves practice usable", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await page.evaluate(
+    (key) => localStorage.setItem(key, '{"order":null}'),
+    studyStorageKey,
+  );
+  await page.reload();
+  await expect(page.locator(".question-title")).toHaveText(bank[0].question);
+  await page.addInitScript(() => {
+    Storage.prototype.getItem = () => {
+      throw new DOMException("Blocked", "SecurityError");
+    };
+    Storage.prototype.setItem = () => {
+      throw new DOMException("Blocked", "SecurityError");
+    };
+  });
+  await page.reload();
+  await expect(page.getByRole("alert")).toContainText("lưu");
+  await page.locator('.question-card input[value="D"]').check();
+  await page
+    .getByRole("button", { name: "Kiểm tra đáp án", exact: true })
+    .click();
+  await expect(page.locator(".answer-feedback")).toContainText("Chính xác.");
+});
 
 test("practice checks wrong/right choices, keeps feedback on navigation, and shuffles", async ({
   page,
