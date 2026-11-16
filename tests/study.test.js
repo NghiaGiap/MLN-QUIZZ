@@ -7,6 +7,38 @@ const bank = JSON.parse(
   readFileSync(new URL("../src/data/questions.json", import.meta.url)),
 );
 
+test("starting over clears all study progress and reshuffles every question from its previous order", () => {
+  const random = Math.random;
+  Math.random = () => 0;
+  try {
+    const previous = createStudySession(bank);
+    previous.order.reverse();
+    previous.index = 40;
+    previous.answers = { 1: ["D"], 2: ["A"] };
+    previous.checked = { 1: true };
+    previous.search = "526";
+    const unchanged = structuredClone(previous);
+    const fresh = createStudySession(bank, previous.optionOrders);
+    assert.deepEqual(
+      fresh.order,
+      bank.map((q) => q.id),
+    );
+    assert.equal(fresh.index, 0);
+    assert.equal(fresh.search, "");
+    assert.deepEqual(fresh.answers, {});
+    assert.deepEqual(fresh.checked, {});
+    for (const q of bank)
+      assert.notDeepEqual(
+        fresh.optionOrders[q.id],
+        previous.optionOrders[q.id],
+      );
+    assert.deepEqual(previous, unchanged);
+    assert.deepEqual(restoreStudySession(JSON.stringify(fresh), bank), fresh);
+  } finally {
+    Math.random = random;
+  }
+});
+
 test("study restores position, question/answer order, partial answers, feedback and search", () => {
   const session = createStudySession(bank);
   session.order.reverse();

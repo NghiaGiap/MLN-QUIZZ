@@ -18,7 +18,7 @@ function bankSignature(bank) {
   return hash.toString(16);
 }
 
-export function createStudySession(bank) {
+export function createStudySession(bank, previousOrders = {}) {
   return {
     version: 1,
     bankSignature: bankSignature(bank),
@@ -27,7 +27,7 @@ export function createStudySession(bank) {
     answers: {},
     checked: {},
     optionOrders: Object.fromEntries(
-      bank.map((q) => [q.id, shuffleOptionKeys(q)]),
+      bank.map((q) => [q.id, shuffleOptionKeys(q, previousOrders[q.id])]),
     ),
     search: "",
   };

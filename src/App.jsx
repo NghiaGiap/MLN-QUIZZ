@@ -14,6 +14,7 @@ import {
   ShieldCheck,
   Shuffle,
   Sparkles,
+  Trash2,
 } from "lucide-react";
 import bank from "./data/questions.json";
 import {
@@ -153,6 +154,24 @@ export default function App() {
     examState.start();
     setMode("exam");
     setNotice("");
+  }
+  function resetAllStudy() {
+    setDialog({
+      title: "Reset toàn bộ tiến độ ôn tập?",
+      description:
+        "Xóa lựa chọn và kết quả đã kiểm tra của tất cả câu, đưa về câu 1, bỏ tìm kiếm và xáo lại đáp án. Bài thi thử đang lưu được giữ nguyên.",
+      confirm: "Reset tất cả",
+      action: () => {
+        const fresh = createStudySession(bank, optionOrders);
+        setOrder(fresh.order);
+        setIndex(fresh.index);
+        setAnswers(fresh.answers);
+        setChecked(fresh.checked);
+        setOptionOrders(fresh.optionOrders);
+        setSearch(fresh.search);
+        setNotice("Đã reset toàn bộ tiến độ ôn tập. Bắt đầu lại từ câu 1.");
+      },
+    });
   }
   function newExam() {
     setDialog({
@@ -362,6 +381,12 @@ export default function App() {
                       <ListOrdered size={16} /> Về thứ tự ban đầu
                     </button>
                   )}
+                  <button
+                    className="button reset-all"
+                    onClick={resetAllStudy}
+                  >
+                    <Trash2 size={16} /> Reset tất cả
+                  </button>
                 </div>
               </div>
               {notice && (

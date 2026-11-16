@@ -7,6 +7,102 @@ const bank = JSON.parse(
 const storageKey = "mln122-exam-v2";
 const studyStorageKey = "mln122-study-v1";
 
+test("reset all requires confirmation, preserves individual retry and exam, and stays reset after reload", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await page.getByRole("button", { name: "Thi thử", exact: true }).click();
+  await page
+    .getByRole("button", { name: "Bắt đầu làm bài", exact: true })
+    .click();
+  await page.locator('.question-card input[value="A"]').check();
+  await page.getByRole("button", { name: "Câu tiếp", exact: true }).click();
+  const examBefore = await page.evaluate(
+    (key) => JSON.parse(localStorage.getItem(key)),
+    storageKey,
+  );
+  await page.getByRole("button", { name: "Ôn tập", exact: true }).click();
+  for (const question of bank.slice(0, 2)) {
+    await page.getByRole("searchbox").fill(question.id);
+    for (const key of question.correct)
+      await page.locator(`.question-card input[value="${key}"]`).check();
+    await page
+      .getByRole("button", { name: "Kiểm tra đáp án", exact: true })
+      .click();
+  }
+  await page.getByRole("button", { name: "Làm lại", exact: true }).click();
+  const singleReset = await page.evaluate(
+    (key) => JSON.parse(localStorage.getItem(key)),
+    studyStorageKey,
+  );
+  expect(singleReset.checked).toEqual({ 1: true });
+  expect(singleReset.answers["1"]).toEqual(bank[0].correct);
+  expect(singleReset.answers["2"]).toEqual([]);
+  await page.getByRole("button", { name: "Xáo câu hỏi", exact: true }).click();
+  await page.getByRole("searchbox").fill("526");
+  for (const width of [320, 390, 768, 1024, 1440]) {
+    await page.setViewportSize({ width, height: 1000 });
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth,
+      ),
+    ).toBe(true);
+    await expect(
+      page.getByRole("button", { name: "Reset tất cả", exact: true }),
+    ).toBeVisible();
+  }
+  const before = await page.evaluate(
+    (key) => JSON.parse(localStorage.getItem(key)),
+    studyStorageKey,
+  );
+  await page.getByRole("button", { name: "Reset tất cả", exact: true }).click();
+  const dialog = page.getByRole("dialog");
+  await expect(dialog).toContainText("tiến độ ôn tập");
+  await dialog.getByRole("button", { name: "Quay lại", exact: true }).click();
+  expect(
+    await page.evaluate(
+      (key) => JSON.parse(localStorage.getItem(key)),
+      studyStorageKey,
+    ),
+  ).toEqual(before);
+  await expect(page.getByRole("searchbox")).toHaveValue("526");
+  await page.getByRole("button", { name: "Reset tất cả", exact: true }).click();
+  await dialog
+    .getByRole("button", { name: "Reset tất cả", exact: true })
+    .click();
+  await expect(dialog).not.toBeVisible();
+  await expect(page.locator(".question-title")).toHaveText(bank[0].question);
+  await expect(page.getByRole("searchbox")).toHaveValue("");
+  await expect(page.locator(".answer-feedback, .explanation")).toHaveCount(0);
+  await expect(page.locator("input:checked")).toHaveCount(0);
+  await expect(
+    page.getByRole("button", { name: "Về thứ tự ban đầu", exact: true }),
+  ).toHaveCount(0);
+  const after = await page.evaluate(
+    (key) => JSON.parse(localStorage.getItem(key)),
+    studyStorageKey,
+  );
+  expect(after.order).toEqual(bank.map((q) => q.id));
+  expect(after.index).toBe(0);
+  expect(after.answers).toEqual({});
+  expect(after.checked).toEqual({});
+  for (const q of bank)
+    expect(after.optionOrders[q.id]).not.toEqual(before.optionOrders[q.id]);
+  expect(
+    await page.evaluate(
+      (key) => JSON.parse(localStorage.getItem(key)),
+      storageKey,
+    ),
+  ).toEqual(examBefore);
+  await page.reload();
+  await page.getByRole("button", { name: "Ôn tập", exact: true }).click();
+  await expect(page.locator(".question-title")).toHaveText(bank[0].question);
+  await expect(page.locator(".answer-feedback")).toHaveCount(0);
+  const stats = page.getByRole("region", { name: "Thống kê ôn tập" });
+  await expect(stats).toContainText("0%");
+  await expect(stats).toContainText("0 / 555");
+});
+
 test("study restores the current card, shuffled order, answers and feedback after reload and reopening", async ({
   page,
   context,

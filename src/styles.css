@@ -390,6 +390,14 @@ h1 {
 .toolbar-controls .button {
   white-space: nowrap;
 }
+.button.reset-all {
+  color: #834a36;
+  background: white;
+  border-color: #d8b9ac;
+}
+.button.reset-all:hover {
+  background: #fcf1eb;
+}
 .search-box {
   display: flex;
   align-items: center;

@@ -21,6 +21,7 @@ Nếu chuyển dự án sang máy khác, cài Node.js 22.12 trở lên và chạ
 - **Điều hướng:** dùng Câu trước/Câu tiếp, bản đồ câu hỏi hoặc tìm kiếm. Nhập số từ 1 đến 555 để đến câu tương ứng; cũng có thể tìm bằng từ khóa không dấu. Các câu 527–555 là những câu độc lập tách từ ghi chú, có lựa chọn và đáp án riêng.
 - **Xáo câu hỏi:** đổi thứ tự ôn tập, vẫn giữ lựa chọn, thứ tự đáp án và kết quả, kể cả sau khi tải lại hoặc mở lại web. Khi chưa có tiến độ hợp lệ, web mới khởi tạo thứ tự đáp án ngẫu nhiên cho toàn bộ câu; nút Làm lại vẫn xáo lại đáp án của câu đó.
 - **Về thứ tự ban đầu:** xuất hiện cạnh nút xáo khi thứ tự câu đã thay đổi. Khôi phục thứ tự bộ câu hỏi, xóa từ khóa và về câu 1; vẫn giữ lựa chọn, kết quả và thứ tự đáp án của từng câu.
+- **Reset tất cả:** nút cạnh các thao tác xáo câu trong phần ôn tập. Sau khi xác nhận, xóa lựa chọn và kết quả của tất cả câu, bỏ tìm kiếm, về thứ tự ban đầu/câu 1 và xáo lại đáp án cho toàn bộ câu hỏi. Tiến độ trống được tự động lưu nên tải lại web vẫn bắt đầu từ đầu. Bài thi thử đang lưu và hạn giờ được giữ nguyên. Chọn Quay lại hoặc đóng hộp xác nhận để giữ tiến độ hiện tại; nút Làm lại từng câu vẫn chỉ reset câu đó.
 - **Thi thử:** tạo đề gồm 60 câu ngẫu nhiên không trùng từ **toàn bộ 555 câu**, làm trong 50 phút. Mỗi đề mới xáo nội dung đáp án, giữ nhãn A–B–C–D–E. Quay lại câu hoặc tải lại trang giữ nguyên thứ tự, lựa chọn và hạn giờ. Đáp án và giải thích chỉ hiện sau khi nộp hoặc hết giờ.
 - **Nộp bài:** hiển thị xác nhận, điểm thang 10, số câu đúng/sai/chưa trả lời và đáp án từng câu. Mỗi câu đúng có trọng số bằng nhau; câu nhiều đáp án chỉ đúng khi chọn đủ và không chọn thừa.
 - **Hết giờ:** tự động nộp, kể cả khi đang ở chế độ ôn tập. Khi quay lại tab hoặc tải lại trang, thời gian được tính từ thời điểm hết hạn cố định.
@@ -60,8 +61,8 @@ npm.cmd run build
 npm.cmd run preview
 ```
 
-- Node test runner: 19 kiểm tra dữ liệu, giải thích, tách biến thể, khôi phục 15 câu theo đáp án học phần và cơ chế lọc dữ liệu giả lập, lấy mẫu, xáo đáp án, chấm điểm, thời gian và khôi phục.
-- Playwright: 11 luồng trình duyệt với Microsoft Edge, gồm lưu/khôi phục tiến độ ôn tập sau F5 và mở lại tab, xử lý dữ liệu lưu hỏng và chặn lưu, tìm kiếm, phục hồi thứ tự, thi/nộp/tạo đề mới, tải lại, hết giờ, giải thích, chấm đủ 15 câu được đưa lại vào bộ và responsive 320/390/768/1024/1440px. Cần cài Microsoft Edge; đổi `channel` trong `playwright.config.js` nếu dùng Chromium khác.
+- Node test runner: 20 kiểm tra dữ liệu, giải thích, tách biến thể, khôi phục 15 câu theo đáp án học phần và cơ chế lọc dữ liệu giả lập, lấy mẫu, xáo đáp án, chấm điểm, thời gian và khôi phục.
+- Playwright: 12 luồng trình duyệt với Microsoft Edge, gồm reset tất cả có xác nhận, giữ reset từng câu và bài thi đang làm, lưu/khôi phục tiến độ ôn tập sau F5 và mở lại tab, xử lý dữ liệu lưu hỏng và chặn lưu, tìm kiếm, phục hồi thứ tự, thi/nộp/tạo đề mới, tải lại, hết giờ, giải thích, chấm đủ 15 câu được đưa lại vào bộ và responsive 320/390/768/1024/1440px. Cần cài Microsoft Edge; đổi `channel` trong `playwright.config.js` nếu dùng Chromium khác.
 - `dist/` là bản tĩnh sau build. Dùng `npm.cmd run preview` để xem; không mở bằng cách nhấp đúp `dist/index.html`.
 - Định dạng code: `npx prettier --write src tests e2e *.js package.json`.
 
